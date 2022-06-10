@@ -3,9 +3,8 @@
     <login-page />
   </div>
 </template>
-
 <script>
-import LoginPage from '@/components/admin/LoginPage.vue'
+import LoginPage from '@/pages/admin/LoginPage.vue'
 export default {
   name: 'IndexPage',
   components: {
