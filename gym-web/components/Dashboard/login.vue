@@ -18,9 +18,6 @@
         ></b-form-input>
         <b-form-input type="password" placeholder="Password"></b-form-input>
         <div class="d-flex justify-content-center">
-          <!-- <b-button class="mt-4 btn" block>
-            <nuxt-link to="/DashboardPage"> LOGIN </nuxt-link></b-button
-          > -->
           <b-button class="mt-4 login" block @click="dashboard()">
             LOGIN
           </b-button>
@@ -34,20 +31,11 @@
 </template>
 <script>
 export default {
-  name: 'LoginPage',
+  name: 'LoginView',
   methods: {
     dashboard() {
-      this.$router.push({ path: '/admin/DashboardPage' })
+      this.$router.push({ path: '/admin/dashboard' })
     },
   },
 }
 </script>
-<style>
-.login {
-  width: 35%;
-  background-color: #f15a24;
-}
-#form {
-  width: 50%;
-}
-</style>
