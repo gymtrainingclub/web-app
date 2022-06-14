@@ -12,16 +12,6 @@
           </div>
         </div>
       </b-card-group>
-      <!-- <div>
-        <b-button-group v-for="name in buttons" :key="name" class="">
-          <b-button variant="danger" class="m-5 d-flex justify-content-center">
-            {{ name }}
-          </b-button>
-        </b-button-group>
-      </div>
-      <div class="text-center">
-        <b-table striped hover :items="items"></b-table>
-      </div> -->
     </b-container>
   </div>
 </template>
