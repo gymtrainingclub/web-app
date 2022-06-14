@@ -10,8 +10,9 @@
             ></b-img>
           </div>
         </b-sidebar>
-        <b-icon v-b-toggle.sidebar-1 icon="list"></b-icon>
-        CAPSTONE GYM CLUB
+        <div class="d-flex align-item-center">
+          <b-icon v-b-toggle.sidebar-1 class="h3" icon="list"></b-icon>
+        </div>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -21,7 +22,7 @@
         <div></div>
         <b-navbar-nav class="ml-auto">
           <div class="mr-2 row align-items-center">
-            <b-icon variant="white" icon="bell-fill"></b-icon>
+            <b-icon variant="white" class="h4" icon="bell-fill"></b-icon>
             <span class="ml-4">Cleo Zhacky</span>
           </div>
           <!-- <div class="row align-items-center mr-2"></div> -->
