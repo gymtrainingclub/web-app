@@ -3,7 +3,7 @@
     <navbar-view />
     <b-container class="p-5 mt-5">
       <b-card-group class="text-center" deck>
-        <div v-for="card in cards" :key="card" class="card">
+        <div v-for="(card, index) in cards" :key="index" class="card">
           <div class="card-header">
             <h5>{{ card.name }} <b-icon :icon="card.icon"></b-icon></h5>
           </div>

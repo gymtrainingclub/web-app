@@ -35,7 +35,9 @@
               <th scope="col">Time</th>
               <th scope="col">Trainer</th>
               <th scope="col">
-                <b-icon class="h2" icon="plus-circle"></b-icon>
+                <NuxtLink to="/admin/Dashboard/Class/new-class">
+                  <b-icon class="h2" icon="plus-circle"></b-icon>
+                </NuxtLink>
               </th>
             </tr>
           </thead>

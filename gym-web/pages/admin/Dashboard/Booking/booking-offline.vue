@@ -4,12 +4,17 @@
     <div class="p-5 mt-5">
       <h3>
         <NuxtLink to="/admin/Dashboard/booking-class">
-          <b-icon icon="arrow-left"></b-icon>
+          <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Booking Offline Class
       </h3>
       <div class="offline">
-        <b-nav-form class="mt-5">
+        <b-button-group v-for="button in buttons" :key="button">
+          <b-button style="background-color: #0c303d" class="mr-3 mt-4">{{
+            button
+          }}</b-button>
+        </b-button-group>
+        <b-nav-form class="mt-2">
           <b-form-input
             size="lg"
             class="mr-2 search"
@@ -19,11 +24,7 @@
             ><b-icon icon="search"></b-icon
           ></b-button>
         </b-nav-form>
-        <b-button-group v-for="button in buttons" :key="button">
-          <b-button style="background-color: #0c303d" class="mr-3 mb-5 mt-5">{{
-            button
-          }}</b-button>
-        </b-button-group>
+
         <table class="table table-borderless text-center">
           <thead>
             <tr>

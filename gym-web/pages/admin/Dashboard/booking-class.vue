@@ -19,8 +19,7 @@
         <div class="card" style="max-width: 17rem">
           <div class="card-body">
             <h3>
-              <b-icon class="h2" style="color: #0c303d" icon="wifi-off">
-              </b-icon>
+              <b-icon style="color: #0c303d" icon="wifi-off"> </b-icon>
               Offine Class
             </h3>
           </div>

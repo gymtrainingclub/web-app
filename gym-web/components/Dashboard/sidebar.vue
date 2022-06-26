@@ -10,7 +10,7 @@
         <div id="sidebar-no-header-title" class="d-flex justify-content-center">
           <b-img class="image" src="@/assets/img/logo.png"></b-img>
         </div>
-        <div v-for="link in routes" :key="link">
+        <div v-for="(link, index) in routes" :key="index">
           <NuxtLink :to="link.to">
             <b-button class="sidebar-btn mt-3" block>
               <b-icon :icon="link.icon"></b-icon>
@@ -37,7 +37,7 @@ export default {
         {
           title: 'Admin',
           to: '/admin/Dashboard/admin',
-          icon: 'person-workspace',
+          icon: 'file-earmark-person',
         },
         {
           title: 'Membership',
@@ -47,7 +47,7 @@ export default {
         {
           title: 'Class Gym',
           to: '/admin/Dashboard/class',
-          icon: 'house-heart-fill',
+          icon: 'collection',
         },
         {
           title: 'Class Booking',
@@ -56,7 +56,7 @@ export default {
         },
         {
           title: 'News & Content',
-          to: '/admin/Dashboard/news&content',
+          to: '/admin/Dashboard/news-content',
           icon: 'newspaper',
         },
         // {title: 'Log Out', to: '/admin/dashboard'},
