@@ -70,7 +70,7 @@ import NavbarView from '@/components/Dashboard/NavbarView.vue'
 import EditDataAdmin from '~/components/Dashboard/Admin/EditDataAdmin.vue'
 import DeleteAdmin from '~/components/Dashboard/Admin/delete-admin.vue'
 export default {
-  name: 'MembersData',
+  name: 'AdminData',
   components: {
     NavbarView,
     EditDataAdmin,

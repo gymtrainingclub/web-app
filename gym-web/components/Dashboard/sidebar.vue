@@ -56,7 +56,7 @@ export default {
         },
         {
           title: 'News & Content',
-          to: '/Dashboard/news&content',
+          to: '/Dashboard/news-content',
           icon: 'newspaper',
         },
         // {title: 'Log Out', to: '/admin/dashboard'},

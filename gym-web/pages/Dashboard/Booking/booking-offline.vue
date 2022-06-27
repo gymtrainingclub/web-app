@@ -9,7 +9,12 @@
         Booking Offline Class
       </h3>
       <div class="offline">
-        <b-nav-form class="mt-5">
+        <b-button-group v-for="button in buttons" :key="button">
+          <b-button style="background-color: #0c303d" class="mr-3 mt-4">{{
+            button
+          }}</b-button>
+        </b-button-group>
+        <b-nav-form class="mt-2">
           <b-form-input
             size="lg"
             class="mr-2 search"
@@ -19,11 +24,6 @@
             ><b-icon icon="search"></b-icon
           ></b-button>
         </b-nav-form>
-        <b-button-group v-for="button in buttons" :key="button">
-          <b-button style="background-color: #0c303d" class="mr-3 mb-5 mt-5">{{
-            button
-          }}</b-button>
-        </b-button-group>
         <table class="table table-borderless text-center">
           <thead>
             <tr>
@@ -32,10 +32,7 @@
               <th scope="col">Place</th>
               <th scope="col">Dates</th>
               <th scope="col">Time</th>
-              <th scope="col">Instructor</th>
-              <th scope="col">
-                <b-icon class="h2" icon="plus-circle"></b-icon>
-              </th>
+              <th scope="col">Trainer</th>
             </tr>
           </thead>
           <tbody>
@@ -43,26 +40,16 @@
               <th scope="row"><input type="checkbox" /></th>
               <td>{{ item.class }}</td>
               <td>{{ item.place }}</td>
+              <td>20 Mei 2022</td>
+              <td>08:00 sd 09:00</td>
+              <td>{{ item.trainer }}</td>
               <td>
-                <ul>
-                  <li>20 Mei 2022</li>
-                  <li>20 Mei 2022</li>
-                  <li>20 Mei 2022</li>
-                </ul>
+                <i>See more</i>
+                <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
               </td>
-              <td>
-                <ul>
-                  <li>08: 00 sd 09:00</li>
-                  <li>08: 00 sd 09:00</li>
-                  <li>08: 00 sd 09:00</li>
-                </ul>
-              </td>
-              <td>{{ item.instructor }}</td>
-              <td><b-icon icon="pencil-square"></b-icon></td>
             </tr>
           </tbody>
         </table>
-        <b-button style="background: #0c303d">Delete</b-button>
       </div>
     </div>
   </div>
@@ -81,27 +68,27 @@ export default {
         {
           class: 'Fit Box',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
+          trainer: 'Mr.Lex',
         },
         {
           class: 'Fit Box',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
+          trainer: 'Mr.Lex',
         },
         {
           class: 'Fit Box',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
+          trainer: 'Mr.Lex',
         },
         {
           class: 'Fit Box',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
+          trainer: 'Mr.Lex',
         },
         {
           class: 'Fit Box',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
+          trainer: 'Mr.Lex',
         },
       ],
     }
