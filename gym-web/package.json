@@ -19,6 +19,7 @@
     "bootstrap": "^4.6.1",
     "bootstrap-icons": "^1.8.3",
     "bootstrap-vue": "^2.22.0",
+    "chart.js": "^3.8.0",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "update": "^0.7.4",

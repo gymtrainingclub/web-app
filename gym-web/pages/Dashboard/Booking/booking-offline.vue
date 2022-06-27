@@ -3,8 +3,8 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/admin/Dashboard/booking-class">
-          <b-icon icon="arrow-left"></b-icon>
+        <NuxtLink to="/Dashboard/booking-class">
+          <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Booking Offline Class
       </h3>
@@ -39,7 +39,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in items" :key="item">
+            <tr v-for="(item, index) in items" :key="index">
               <th scope="row"><input type="checkbox" /></th>
               <td>{{ item.class }}</td>
               <td>{{ item.place }}</td>

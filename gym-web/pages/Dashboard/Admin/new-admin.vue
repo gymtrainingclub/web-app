@@ -3,8 +3,8 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/admin/Dashboard/Admin/admin-data">
-          <b-icon icon="arrow-left"></b-icon>
+        <NuxtLink to="/Dashboard/Admin/admin-data">
+          <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         New Admin
       </h3>

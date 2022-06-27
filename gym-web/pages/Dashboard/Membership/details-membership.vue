@@ -3,7 +3,7 @@
     <NavbarView />
     <b-container class="pt-5 mt-5">
       <h2>
-        <NuxtLink to="/admin/Dashboard/Membership/members-data">
+        <NuxtLink to="/Dashboard/Membership/members-data">
           <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Details Membership

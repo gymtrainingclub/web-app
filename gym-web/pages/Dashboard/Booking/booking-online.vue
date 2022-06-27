@@ -3,8 +3,8 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/admin/Dashboard/booking-class">
-          <b-icon icon="arrow-left"></b-icon>
+        <NuxtLink to="/Dashboard/booking-class">
+          <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Booking Online Class
       </h3>
@@ -19,7 +19,7 @@
             ><b-icon icon="search"></b-icon
           ></b-button>
         </b-nav-form>
-        <b-button-group v-for="button in buttons" :key="button">
+        <b-button-group v-for="(button, index) in buttons" :key="index">
           <b-button style="background-color: #0c303d" class="mr-3 mb-5 mt-5">{{
             button
           }}</b-button>
@@ -39,7 +39,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in items" :key="item">
+            <tr v-for="(item, index) in items" :key="index">
               <th scope="row"><input type="checkbox" /></th>
               <td>{{ item.class }}</td>
               <td>{{ item.link }}</td>

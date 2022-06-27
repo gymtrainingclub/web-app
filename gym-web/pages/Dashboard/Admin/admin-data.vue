@@ -3,8 +3,8 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/admin/Dashboard/admin">
-          <b-icon icon="arrow-left"></b-icon>
+        <NuxtLink to="/Dashboard/admin">
+          <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Admin Capstone Gym Data
       </h3>
@@ -29,14 +29,14 @@
               <th scope="col">Password</th>
               <th scope="col">Tanggal Join</th>
               <th scope="col">
-                <NuxtLink to="/admin/Dashboard/Admin/new-admin">
+                <NuxtLink to="/Dashboard/Admin/new-admin">
                   <b-icon class="h2" icon="plus-circle"></b-icon>
                 </NuxtLink>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in items" :key="item">
+            <tr v-for="(item, index) in items" :key="index">
               <th scope="row"><input type="checkbox" /></th>
               <td>{{ item.id }}</td>
               <td>{{ item.name }}</td>
