@@ -20,23 +20,7 @@
       memahami diri sendiri, secara tak langsung itu menjadi nasihat terbaik
       bagi diri Anda.
     </p>
-    <p>
-      Jika Anda dapat membaca apa kebutuhan diri, Anda akan mengetahui ketika
-      saat sedang tidak cukup makan, saat berat badan terasa mulai berlebihan,
-      ketika Anda memerlukan istirahat yang cukup, atau bahkan ketika tubuh Anda
-      membutuhkan latihan yang lebih keras.
-    </p>
-    <p>
-      Bagian yang menyenangkan dari berolahraga adalah menemukan pemahaman yang
-      lebih baik tentang tubuh Anda. Untuk mendapatkan hasil maksimal dari
-      latihan gym atau workout Anda, berikut adalah 4 tips untuk pemula.
-    </p>
-    <p>
-      Jika Anda dapat membaca apa kebutuhan diri, Anda akan mengetahui ketika
-      saat sedang tidak cukup makan, saat berat badan terasa mulai berlebihan,
-      ketika Anda memerlukan istirahat yang cukup, atau bahkan ketika tubuh Anda
-      membutuhkan latihan yang lebih keras.
-    </p>
+
     <div class="d-flex justify-content-end">
       <b-button class="mr-2 pr-4 pl-4" variant="outline-secondary"
         >Delete</b-button

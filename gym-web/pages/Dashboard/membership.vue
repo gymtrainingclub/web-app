@@ -20,11 +20,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(item, index) in items" :key="index">
-                      <td>{{ item.id }}</td>
-                      <td>{{ item.name }}</td>
-                      <td>{{ item.membership }}</td>
-                      <td>{{ item.tgl }}</td>
+                    <tr v-for="(membership, index) in memberships" :key="index">
+                      <td>{{ membership.id }}</td>
+                      <td>{{ membership.name }}</td>
+                      <td>{{ membership.membership }}</td>
+                      <td>{{ membership.tgl }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -137,6 +137,19 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    memberships() {
+      return this.$store.state.memberships
+    },
+  },
+  mounted() {
+    this.getMembership()
+  },
+  methods: {
+    getMembership() {
+      this.$store.dispatch('getMembership')
+    },
   },
 }
 </script>

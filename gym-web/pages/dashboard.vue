@@ -45,12 +45,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in items" :key="index">
+              <tr v-for="(trainer, index) in clas" :key="index">
                 <td><b-icon icon="aspect-ratio"></b-icon></td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.class }}</td>
-                <td>{{ item.type_class }}</td>
-                <td>{{ item.number }}</td>
+                <td>{{ trainer.instructor.name }}</td>
+                <td>{{ trainer.name }}</td>
+                <td>{{ trainer.type }}</td>
+                <td>{{ trainer.instructor.handphone }}</td>
                 <td>
                   <b-button-group size="sm">
                     <b-button class="pr-3 pl-3" variant="success"
@@ -92,44 +92,20 @@ export default {
         'Class',
         // 'Room',
       ],
-      items: [
-        {
-          name: 'Rexaa',
-          number: '9023483284',
-          class: 'Fit Rush',
-          type_class: 'Online',
-          tgl: '31 Mei 2022',
-        },
-        {
-          name: 'Rexaa',
-          number: '9023483284',
-          class: 'Fit Rush',
-          type_class: 'Online',
-          tgl: '31 Mei 2022',
-        },
-        {
-          name: 'Rexaa',
-          number: '9023483284',
-          class: 'Fit Rush',
-          type_class: 'Online',
-          tgl: '31 Mei 2022',
-        },
-        {
-          name: 'Rexaa',
-          number: '9023483284',
-          class: 'Fit Rush',
-          type_class: 'Online',
-          tgl: '31 Mei 2022',
-        },
-        {
-          name: 'Rexaa',
-          number: '9023483284',
-          class: 'Fit Rush',
-          type_class: 'Online',
-          tgl: '31 Mei 2022',
-        },
-      ],
     }
+  },
+  computed: {
+    clas() {
+      return this.$store.state.class
+    },
+  },
+  mounted() {
+    this.getClass()
+  },
+  methods: {
+    getClass() {
+      this.$store.dispatch('getClass')
+    },
   },
 }
 </script>

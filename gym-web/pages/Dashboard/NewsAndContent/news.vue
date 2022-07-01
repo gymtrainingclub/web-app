@@ -39,11 +39,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in items" :key="index">
+          <tr v-for="(newsletter, index) in newsletters" :key="index">
             <th scope="row"><input type="checkbox" /></th>
-            <td>{{ item.title }}</td>
-            <td>{{ item.author }}</td>
-            <td>{{ item.date }}</td>
+            <td>{{ newsletter.title }}</td>
+            <td>{{ newsletter.created_by }}</td>
+            <td>{{ newsletter.created_at }}</td>
             <td>
               <b-icon
                 v-b-modal.modal-1
@@ -74,34 +74,20 @@ export default {
   data() {
     return {
       buttons: ['Lifestyle', 'Gym News', 'Tips Workout', 'Diet'],
-      items: [
-        {
-          title: 'Meisha Thomas',
-          author: 'Lizzo',
-          date: '01 Mei 2022',
-        },
-        {
-          title: 'Meisha Thomas',
-          author: 'Lizzo',
-          date: '01 Mei 2022',
-        },
-        {
-          title: 'Meisha Thomas',
-          author: 'Lizzo',
-          date: '01 Mei 2022',
-        },
-        {
-          title: 'Meisha Thomas',
-          author: 'Lizzo',
-          date: '01 Mei 2022',
-        },
-        {
-          title: 'Meisha Thomas',
-          author: 'Lizzo',
-          date: '01 Mei 2022',
-        },
-      ],
     }
+  },
+  computed: {
+    newsletters() {
+      return this.$store.state.newsletter
+    },
+  },
+  mounted() {
+    this.getNewsletter()
+  },
+  methods: {
+    getNewsletter() {
+      this.$store.dispatch('getNewsletter')
+    },
   },
 }
 </script>
