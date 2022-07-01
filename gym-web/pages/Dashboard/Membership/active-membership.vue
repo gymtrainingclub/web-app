@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in items" :key="item">
+          <tr v-for="(item, index) in items" :key="index">
             <th scope="row"><input type="checkbox" /></th>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>

@@ -3,7 +3,7 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/admin/Dashboard/class">
+        <NuxtLink to="/Dashboard/class">
           <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Offline Class
@@ -40,25 +40,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in items" :key="item">
+            <tr v-for="(offline_class, index) in clas" :key="index">
               <th scope="row"><input type="checkbox" /></th>
-              <td>{{ item.class }}</td>
-              <td>{{ item.place }}</td>
+              <td>{{ offline_class.name }}</td>
+              <td>{{ offline_class.location }}</td>
               <td>
-                <ul>
-                  <li>20 Mei 2022</li>
-                  <li>20 Mei 2022</li>
-                  <li>20 Mei 2022</li>
-                </ul>
+                {{ offline_class.start_date }}
               </td>
-              <td>
-                <ul>
-                  <li>08: 00 sd 09:00</li>
-                  <li>08: 00 sd 09:00</li>
-                  <li>08: 00 sd 09:00</li>
-                </ul>
-              </td>
-              <td>{{ item.instructor }}</td>
+              <td>{{ offline_class.instructor.name }}</td>
               <td><b-icon icon="pencil-square"></b-icon></td>
             </tr>
           </tbody>
@@ -78,34 +67,20 @@ export default {
   data() {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
-      items: [
-        {
-          class: 'Fit Box',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          instructor: 'Mr.Lex',
-        },
-      ],
     }
+  },
+  computed: {
+    clas() {
+      return this.$store.state.class
+    },
+  },
+  mounted() {
+    this.getClass()
+  },
+  methods: {
+    getClass() {
+      this.$store.dispatch('getClass')
+    },
   },
 }
 </script>

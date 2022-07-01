@@ -3,7 +3,7 @@
     <NavbarView />
     <b-container class="pt-5 mt-5">
       <h2>
-        <NuxtLink to="/admin/Dashboard/Membership/members-data">
+        <NuxtLink to="/Dashboard/Membership/members-data">
           <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Details Membership
@@ -71,94 +71,6 @@
           ></b-button>
         </b-col>
       </b-row>
-      <!-- <div class="mt-4">
-        <div class="row p-2">
-          <div class="col-3">Nama</div>
-          <div class="col-9">Meysha Thomas</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">Id Number/KTP</div>
-          <div class="col-9">1923948503844859</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">No. Handphone</div>
-          <div class="col-9">+62394530985</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">Address</div>
-          <div class="col-9">Jalan Nurul Haji no 45 kota betung</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">Membership</div>
-          <div class="col-9">Gold Membership</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3"></div>
-          <div class="col-9">
-            <b-card
-              style="background: #0c303d"
-              text-variant="white"
-              class="detail p-3"
-            >
-              <b-row>
-                <b-col class="mt-4">
-                  <div>GOLD MEMBER</div>
-                  <ol>
-                    <li>12 Months</li>
-                    <li>Unlimited Online Class</li>
-                    <li>Max 4 times or 4 class a week</li>
-                  </ol>
-                </b-col>
-                <b-col>
-                  <b-card style="background: #e7b710" class="card-member">
-                    <b-row>
-                      <b-col>
-                        <b-card-text>Membership Card</b-card-text>
-                      </b-col>
-                      <b-col>
-                        <div width="72px" class="d-flex justify-content-end">
-                          <b-img
-                            height="62px"
-                            src="@/assets/img/logo-white.png"
-                          ></b-img>
-                        </div>
-                      </b-col>
-                    </b-row>
-                    <h4>Gold</h4>
-                    <b-card-text>00002</b-card-text>
-                    <b-row>
-                      <b-col>
-                        <b-card-text>Meisha Thomas</b-card-text>
-                      </b-col>
-                      <b-col class="d-flex justify-content-around">
-                        <div>exp</div>
-                        <h4>05/23</h4>
-                      </b-col>
-                    </b-row>
-                  </b-card>
-                </b-col>
-              </b-row>
-            </b-card>
-          </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">Payment</div>
-          <div class="col-9">Gopay</div>
-        </div>
-        <div class="row p-2">
-          <div class="col-3">Status Payment</div>
-          <div class="col-9">
-            <b-row>
-              <b-col>
-                Success <b-icon variant="success" icon="check-square"></b-icon>
-              </b-col>
-              <b-col class="d-flex justify-content-end">
-                <b-button size="sm" variant="danger">Active</b-button>
-              </b-col>
-            </b-row>
-          </div>
-        </div>
-      </div> -->
     </b-container>
   </div>
 </template>

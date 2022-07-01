@@ -8,7 +8,7 @@
           <h3 class="card-title">Data Admin</h3>
         </div>
         <div class="card-footer">
-          <NuxtLink to="/admin/Dashboard/Admin/admin-data">
+          <NuxtLink to="/Dashboard/Admin/admin-data">
             <h5>Lihat Detail</h5>
           </NuxtLink>
         </div>
@@ -22,11 +22,6 @@ export default {
   name: 'AdminPage',
   components: {
     NavbarView,
-  },
-  methods: {
-    dataAdmin() {
-      this.$router.push({ path: '/admin/Dashboard/Admin/admin-data' })
-    },
   },
 }
 </script>

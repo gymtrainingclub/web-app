@@ -11,7 +11,7 @@
             </h3>
           </div>
           <div class="card-footer">
-            <NuxtLink to="/admin/Dashboard/Booking/booking-online">
+            <NuxtLink to="/Dashboard/Booking/booking-online">
               <h5>Lihat Detail</h5>
             </NuxtLink>
           </div>
@@ -25,7 +25,7 @@
             </h3>
           </div>
           <div class="card-footer">
-            <NuxtLink to="/admin/Dashboard/Booking/booking-offline">
+            <NuxtLink to="/Dashboard/Booking/booking-offline">
               <h5>Lihat Detail</h5>
             </NuxtLink>
           </div>
