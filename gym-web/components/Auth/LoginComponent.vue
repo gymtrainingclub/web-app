@@ -1,53 +1,58 @@
 <template>
-  <div>
-    <div class="d-flex justify-content-center">
-      <div width="429px">
-        <b-img
-          height="313px"
-          class="img"
-          src="@/assets/img/logo-transparan.png"
-        ></b-img>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
-      <b-form-group id="form">
-        <b-row>
-          <b-col cols="12">
-            <b-form-input
-              v-model="email"
-              class="mb-4"
-              type="text"
-              placeholder="Id Admin"
-            ></b-form-input>
-          </b-col>
-          <b-col cols="12">
-            <b-form-input
-              v-model="pass"
-              type="password"
-              name="password"
-              placeholder="Password"
-            ></b-form-input>
-          </b-col>
-          <b-col cols="12">
-            <div class="d-flex justify-content-center">
-              <b-button
-                style="background-color: #f15a24"
-                class="mt-4 login"
-                block
-                @click="handleLogin()"
-              >
-                LOGIN
-              </b-button>
-            </div>
-          </b-col>
-        </b-row>
-        <div class="d-flex justify-content-center mt-4">
-          <a href="#">Forget Password?</a>
+  <div class="box-center">
+    <div class="card border-0 rounded">
+      <div class="card-body">
+        <div class="d-flex justify-content-center">
+          <img src="@/assets/img/logo-transparan.png" alt="Logo" width="300" />
         </div>
-      </b-form-group>
+        <form @submit.prevent="handleLogin">
+          <div class="form-group">
+            <label for="exampleInputUsername">ID Admin</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputUsername"
+              placeholder="ID Admin"
+              v-model="email"
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label for="exampleInputPassword">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword"
+              placeholder="Password"
+              v-model="password"
+            />
+          </div>
+          <div class="text-right">
+            <NuxtLink to="/auth/login" class="forgot-password">
+              Forgot Password ?
+            </NuxtLink>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <button
+              type="button"
+              class="btn btn-dark font-weight-bold shadow-lg"
+            >
+              Log In
+            </button>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <NuxtLink
+              to="/auth/register"
+              class="btn btn-outline-dark font-weight-bold"
+            >
+              Log in as Customer
+            </NuxtLink>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'LoginView',
@@ -76,23 +81,30 @@ export default {
   },
 }
 </script>
-<style >
-/* .login {
-  width: 35%;
-  background-color: #f15a24;
-} */
-.login:hover {
-  background-color: #f15a24;
-  text-decoration: none;
+
+<style scoped>
+button {
+  width: 30%;
 }
-#form {
-  width: 50%;
-}
-a {
+.forgot-password:hover {
   text-decoration: none;
   color: black;
 }
-a:hover {
-  text-decoration: none;
+.box-center {
+  width: 55%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 460px) {
+  .box-center {
+    width: 90%;
+    top: 65%;
+    padding-bottom: 5%;
+  }
+  button {
+    width: 100%;
+  }
 }
 </style>
