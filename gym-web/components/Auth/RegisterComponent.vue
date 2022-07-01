@@ -1,6 +1,6 @@
 <template>
-  <div class="box-center pb-3">
-    <div class="card shadow-lg border-0">
+  <div class="box-center">
+    <div class="card shadow-lg border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
           <img src="@/assets/img/logo-transparan.png" alt="Logo" width="350" />
@@ -104,13 +104,18 @@ button {
   position: absolute;
   top: 85%;
   left: 50%;
+  padding-bottom: 3%;
+  padding-top: 5%;
   transform: translate(-50%, -50%);
 }
 @media only screen and (max-width: 460px) {
-  .sm-mx-auto {
-    position: relative !important;
-    top: 0%;
-    right: 10%;
+  .box-center {
+    width: 90%;
+    top: 65%;
+    padding-bottom: 5%;
+  }
+  button {
+    width: 100%;
   }
 }
 </style>
