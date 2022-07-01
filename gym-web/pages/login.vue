@@ -12,12 +12,4 @@ export default {
   },
 }
 </script>
-<style >
-.login {
-  width: 35%;
-  background-color: #f15a24;
-}
-#form {
-  width: 50%;
-}
-</style>
+

@@ -10,9 +10,9 @@
         <div id="sidebar-no-header-title" class="d-flex justify-content-center">
           <b-img class="image" src="@/assets/img/logo.png"></b-img>
         </div>
-        <div v-for="link in routes" :key="link">
+        <div v-for="(link, index) in routes" :key="index">
           <NuxtLink :to="link.to">
-            <b-button class="sidebar-btn mt-3" block>
+            <b-button active class="sidebar-btn mt-3" block>
               <b-icon :icon="link.icon"></b-icon>
               {{ link.title }}
             </b-button>
@@ -28,35 +28,35 @@ export default {
   data() {
     return {
       routes: [
-        { title: 'Dashboard', to: '/admin/dashboard', icon: 'house-door-fill' },
+        { title: 'Dashboard', to: '/dashboard', icon: 'house-door-fill' },
         {
           title: 'Profile',
-          to: '/admin/dashboard/profile',
+          to: '/dashboard/profile',
           icon: 'person-fill',
         },
         {
           title: 'Admin',
-          to: '/admin/Dashboard/admin',
+          to: '/Dashboard/admin',
           icon: 'person-workspace',
         },
         {
           title: 'Membership',
-          to: '/admin/Dashboard/membership',
+          to: '/Dashboard/membership',
           icon: 'people-fill',
         },
         {
           title: 'Class Gym',
-          to: '/admin/Dashboard/class',
-          icon: 'house-heart-fill',
+          to: '/Dashboard/class',
+          icon: 'collection',
         },
         {
           title: 'Class Booking',
-          to: '/admin/Dashboard/booking-class',
+          to: '/Dashboard/booking-class',
           icon: 'journal-bookmark-fill',
         },
         {
           title: 'News & Content',
-          to: '/admin/Dashboard/news&content',
+          to: '/Dashboard/news-content',
           icon: 'newspaper',
         },
         // {title: 'Log Out', to: '/admin/dashboard'},
@@ -71,6 +71,9 @@ export default {
 }
 a {
   text-decoration: none;
+}
+.sidebar-btn:hover {
+  background: #f15a24;
 }
 .image {
   max-width: 25%;

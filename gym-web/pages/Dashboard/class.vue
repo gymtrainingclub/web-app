@@ -11,7 +11,7 @@
             </h3>
           </div>
           <div class="card-footer">
-            <NuxtLink to="/admin/Dashboard/Class/online-class">
+            <NuxtLink to="/Dashboard/Class/online-class">
               <h5>Lihat Detail</h5>
             </NuxtLink>
           </div>
@@ -24,7 +24,7 @@
             </h3>
           </div>
           <div class="card-footer">
-            <NuxtLink to="/admin/Dashboard/Class/offline-class">
+            <NuxtLink to="/Dashboard/Class/offline-class">
               <h5>Lihat Detail</h5>
             </NuxtLink>
           </div>

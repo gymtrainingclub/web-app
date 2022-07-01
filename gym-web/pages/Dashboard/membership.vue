@@ -20,11 +20,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="item in items" :key="item">
-                      <td>{{ item.id }}</td>
-                      <td>{{ item.name }}</td>
-                      <td>{{ item.membership }}</td>
-                      <td>{{ item.tgl }}</td>
+                    <tr v-for="(membership, index) in memberships" :key="index">
+                      <td>{{ membership.id }}</td>
+                      <td>{{ membership.name }}</td>
+                      <td>{{ membership.membership }}</td>
+                      <td>{{ membership.tgl }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -50,7 +50,7 @@
                 <h4>Membership Data</h4>
               </div>
               <div class="card-footer">
-                <NuxtLink to="/admin/Dashboard/Membership/members-data">
+                <NuxtLink to="/Dashboard/Membership/members-data">
                   <h5>Lihat Detail</h5>
                 </NuxtLink>
               </div>
@@ -73,7 +73,7 @@
                 <h4>History Payment</h4>
               </div>
               <div class="card-footer">
-                <NuxtLink to="/admin/Dashboard/Membership/history-payment"
+                <NuxtLink to="/Dashboard/Membership/history-payment"
                   ><h5>Lihat Detail</h5></NuxtLink
                 >
               </div>
@@ -137,6 +137,19 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    memberships() {
+      return this.$store.state.memberships
+    },
+  },
+  mounted() {
+    this.getMembership()
+  },
+  methods: {
+    getMembership() {
+      this.$store.dispatch('getMembership')
+    },
   },
 }
 </script>

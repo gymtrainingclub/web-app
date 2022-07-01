@@ -3,7 +3,7 @@
     <NavbarView />
     <b-container class="p-5 m-5">
       <h2>
-        <NuxtLink to="/admin/Dashboard/membership">
+        <NuxtLink to="/Dashboard/membership">
           <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         Member's Data
@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in items" :key="item">
+          <tr v-for="(item, index) in items" :key="index">
             <th scope="row"><input type="checkbox" /></th>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
@@ -28,7 +28,7 @@
             <td>{{ item.membership }}</td>
             <td>{{ item.start_join }}</td>
             <td>
-              <NuxtLink to="/admin/Dashboard/Membership/details-membership">
+              <NuxtLink to="/Dashboard/Membership/details-membership">
                 <i>See more</i>
                 <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
               </NuxtLink>
