@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RegisterView from '@/components/Dashboard/RegisterView.vue'
+import RegisterView from '@/components/Auth/RegisterComponent.vue'
 export default {
   name: 'RegisterPage',
   components: { RegisterView },

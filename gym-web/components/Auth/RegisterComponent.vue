@@ -1,13 +1,10 @@
 <template>
-  <div class="d-flex justify-content-center box-center pb-3">
-    <div class="card shadow-sm">
+  <div class="box-center pb-3">
+    <div class="card shadow-lg border-0">
       <div class="card-body">
-        <img
-          src="@/assets/img/logo-transparan.png"
-          alt="Logo"
-          width="350"
-          class="sm-mx-auto"
-        />
+        <div class="d-flex justify-content-center">
+          <img src="@/assets/img/logo-transparan.png" alt="Logo" width="350" />
+        </div>
         <form>
           <div class="form-group">
             <label for="exampleInputEmail">Email address</label>
@@ -88,7 +85,7 @@
               placeholder="Confirm Password"
             />
           </div>
-          <button type="button" class="btn btn-primary w-100">
+          <button type="button" class="btn btn-dark w-100 mt-2">
             Daftar Akun
           </button>
         </form>
@@ -98,7 +95,7 @@
 </template>
 <style scoped>
 .box-center {
-  width: 90%;
+  width: 60%;
   position: absolute;
   top: 85%;
   left: 50%;

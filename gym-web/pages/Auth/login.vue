@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import LoginView from '@/components/Dashboard/login.vue'
+import LoginView from '@/components/Auth/LoginComponent.vue'
 export default {
   name: 'LoginPage',
   components: {
@@ -12,7 +12,7 @@ export default {
   },
 }
 </script>
-<style >
+<style>
 .login {
   width: 35%;
   background-color: #f15a24;
