@@ -85,15 +85,20 @@
               placeholder="Confirm Password"
             />
           </div>
-          <button type="button" class="btn btn-dark w-100 mt-2">
-            Daftar Akun
-          </button>
+          <div class="d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-dark font-weight-bold">
+              Daftar Akun
+            </button>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
+button {
+  width: 30%;
+}
 .box-center {
   width: 60%;
   position: absolute;
