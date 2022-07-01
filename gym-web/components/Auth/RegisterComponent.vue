@@ -3,7 +3,13 @@
     <div class="card shadow-lg border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
-          <img src="@/assets/img/logo-transparan.png" alt="Logo" width="350" />
+          <NuxtLink to="/auth/login">
+            <img
+              src="@/assets/img/logo-transparan.png"
+              alt="Logo"
+              width="350"
+            />
+          </NuxtLink>
         </div>
         <form>
           <div class="form-group">
@@ -95,6 +101,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'RegisterView',
+}
+</script>
+
 <style scoped>
 button {
   width: 30%;
