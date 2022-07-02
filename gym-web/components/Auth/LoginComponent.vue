@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-center">
           <img src="@/assets/img/logo-transparan.png" alt="Logo" width="300" />
         </div>
-        <form @submit.prevent="handleLogin">
+        <form>
           <div class="form-group">
             <label for="exampleInputUsername">ID Admin</label>
             <input
@@ -33,6 +33,7 @@
           </div>
           <div class="d-flex justify-content-center mt-2">
             <button
+              @click="handleLogin"
               type="button"
               class="btn btn-dark font-weight-bold shadow-lg"
             >
@@ -59,7 +60,7 @@ export default {
   data() {
     return {
       email: '',
-      pass: '',
+      password: '',
     }
   },
   methods: {
@@ -67,7 +68,7 @@ export default {
       this.$axios
         .post('/login', {
           email: this.email,
-          pass: this.pass,
+          password: this.password,
         })
         .then((res) => {
           if (res.data.status === 'success') {
