@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       email: '',
-      pass: '',
+      password: '',
     }
   },
   methods: {
@@ -67,7 +67,7 @@ export default {
       this.$axios
         .post('/login', {
           email: this.email,
-          pass: this.pass,
+          password: this.password,
         })
         .then((res) => {
           if (res.data.status === 'success') {
