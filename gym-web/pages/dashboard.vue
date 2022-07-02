@@ -33,7 +33,7 @@
             ></b-col>
             <b-col><b-button style="background: #0c303d">Save</b-button></b-col>
           </b-row>
-          <table class="table table-borderless text-center">
+          <table class="table table-borderless table-responsive">
             <thead>
               <tr class="table-secondary">
                 <th scope="col"></th>
