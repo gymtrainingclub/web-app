@@ -20,6 +20,7 @@
               id="exampleInputEmail"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              v-model="email"
             />
             <small id="emailHelp" class="form-text text-muted">
               We'll never share your email with anyone else.
@@ -32,6 +33,7 @@
               class="form-control"
               id="exampleInputName"
               placeholder="Full Name"
+              v-model="fullName"
             />
           </div>
           <div class="form-group">
@@ -41,6 +43,7 @@
               class="form-control"
               id="exampleInputHP"
               placeholder="Ex : 08123456789"
+              v-model="handphone"
             />
           </div>
           <div class="form-group">
@@ -50,6 +53,7 @@
               class="form-control"
               id="exampleInputCity"
               placeholder="Ex : Jakarta"
+              v-model="city"
             />
           </div>
           <label class="form-check-label mb-2">Jenis Kelamin</label>
@@ -60,6 +64,7 @@
               name="gender"
               id="male"
               value="Male"
+              v-model="gender"
             />
             <label class="form-check-label" for="male"> Laki-Laki </label>
           </div>
@@ -70,6 +75,7 @@
               name="gender"
               id="female"
               value="Female"
+              v-model="gender"
             />
             <label class="form-check-label" for="female"> Perempuan </label>
           </div>
@@ -80,6 +86,7 @@
               class="form-control"
               id="exampleInputPassword"
               placeholder="Password"
+              v-model="password"
             />
           </div>
           <div class="form-group mt-3">
@@ -89,10 +96,15 @@
               class="form-control"
               id="exampleInputConfirm"
               placeholder="Confirm Password"
+              v-model="confirmPassword"
             />
           </div>
           <div class="d-flex justify-content-center mt-2">
-            <button type="button" class="btn btn-dark font-weight-bold">
+            <button
+              type="button"
+              class="btn btn-dark font-weight-bold"
+              @click="handleRegister"
+            >
               Daftar Akun
             </button>
           </div>
@@ -105,6 +117,38 @@
 <script>
 export default {
   name: 'RegisterView',
+  data() {
+    return {
+      email: '',
+      fullName: '',
+      handphone: '',
+      city: '',
+      gender: '',
+      password: '',
+      confirmPassword: '',
+    }
+  },
+  methods: {
+    handleRegister() {
+      this.$axios
+        .post('/register', {
+          name: this.fullName,
+          gender: this.gender,
+          handphone: this.handphone,
+          city: this.city,
+          email: this.email,
+          password: this.password,
+          confirm_password: this.confirmPassword,
+        })
+        .then((res) => {
+          console.log(res)
+          this.$router.push('/auth/login')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+  },
 }
 </script>
 
