@@ -14,19 +14,15 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
-        <div></div>
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto mr-3">
           <div class="mr-2 row align-items-center">
-            <b-icon variant="white" class="h4" icon="bell-fill"></b-icon>
-            <span class="ml-4">Cleo Zhacky</span>
-          </div>
-          <!-- <div class="row align-items-center mr-2"></div> -->
-          <div></div>
-          <div>
-            <b-avatar
-              variant="info"
-              src="https://placekitten.com/300/300"
-            ></b-avatar>
+            <b-icon variant="white" class="h5 mt-2 mr-3" icon="bell-fill">
+              <!-- icons -->
+            </b-icon>
+            <span class="mr-3">Cleo Zhacky</span>
+            <b-avatar variant="info" src="https://placekitten.com/300/300">
+              <!-- avatar -->
+            </b-avatar>
           </div>
         </b-navbar-nav>
       </b-collapse>
