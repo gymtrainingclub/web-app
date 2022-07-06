@@ -25,42 +25,60 @@
             <b-form-group>
               <label><strong> Name </strong></label>
               <b-form-input
-                placeholder="Meishana Thomas"
+                :value="this.$route.params.id.name"
                 disabled
               ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Gender </strong></label>
-              <b-form-input placeholder="Female" disabled></b-form-input>
+              <b-form-input
+                :value="this.$route.params.id.gender"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> ID Member's </strong></label>
-              <b-form-input placeholder="ID-0000012" disabled></b-form-input>
+              <b-form-input
+                :value="this.$route.params.id.id"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Number Phone </strong></label>
-              <b-form-input placeholder="+628478923784" disabled></b-form-input>
+              <b-form-input
+                :value="this.$route.params.id.no_handphone"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Email </strong></label>
               <b-form-input
                 type="email"
-                placeholder="Conton@capstonegym.com"
+                :value="this.$route.params.id.email"
                 disabled
               ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Address </strong></label>
-              <b-form-input placeholder="ID-0000012" disabled></b-form-input>
+              <b-form-input
+                :value="this.$route.params.id.address"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <div class="d-flex justify-content-between">
               <b-form-group>
                 <label><strong> Start Join </strong></label>
-                <b-form-input placeholder="01 Mei 2022" disabled></b-form-input>
+                <b-form-input
+                  :value="this.$route.params.id.start_join"
+                  disabled
+                ></b-form-input>
               </b-form-group>
               <b-form-group>
                 <label><strong> End Join </strong></label>
-                <b-form-input placeholder="24 Mei 2022" disabled></b-form-input>
+                <b-form-input
+                  :value="this.$route.params.id.end_join"
+                  disabled
+                ></b-form-input>
               </b-form-group>
             </div>
           </b-form>

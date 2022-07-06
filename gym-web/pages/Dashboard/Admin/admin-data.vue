@@ -36,13 +36,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in items" :key="index">
+            <tr v-for="(admin, index) in admins" :key="index">
               <th scope="row"><input type="checkbox" /></th>
-              <td>{{ item.id }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.number }}</td>
-              <td>{{ item.password }}</td>
-              <td>{{ item.tgl }}</td>
+              <td>{{ admin.id }}</td>
+              <td>{{ admin.name }}</td>
+              <td>{{ admin.number }}</td>
+              <td>{{ admin.password }}</td>
+              <td>{{ admin.tgl }}</td>
               <td>
                 <b-icon
                   v-b-modal.modal-prevent-closing

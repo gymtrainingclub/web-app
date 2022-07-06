@@ -9,6 +9,7 @@ export const state = () => ({
   profile: [],
   instructors: [],
   memberships: [],
+  admin: [],
   class: [],
 })
 
@@ -27,6 +28,9 @@ export const mutations = {
   },
   setClass(state, param) {
     state.class = param
+  },
+  setAdmin(state, param) {
+    state.admin = param
   },
 }
 
@@ -50,7 +54,7 @@ export const actions = {
   getInstructor(Store) {
     axios
       .get(
-        'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/instructor'
+        'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/api/v1/instructor'
       )
       .then((response) => {
         Store.commit('setInstructor', response.data.data)
@@ -69,7 +73,6 @@ export const actions = {
     axios
       .get('https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/class')
       .then((response) => {
-        console.log('response', response.data.data)
         Store.commit('setClass', response.data.data)
       })
   },
