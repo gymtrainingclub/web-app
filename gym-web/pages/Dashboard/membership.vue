@@ -1,10 +1,10 @@
 <template>
   <div>
     <NavbarView />
-    <b-container class="pt-5 mt-5">
+    <b-container class="pt-5 mt-5 members">
       <b-card-group deck>
         <b-row>
-          <b-col cols="6">
+          <b-col cols="12" sm="12" md="8">
             <div class="card">
               <div class="card-header" style="background: #0c303d">
                 <h5>Recent New Membership</h5>
@@ -20,7 +20,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(membership, index) in memberships" :key="index">
+                    <tr v-for="(membership, index) in items" :key="index">
                       <td>{{ membership.id }}</td>
                       <td>{{ membership.name }}</td>
                       <td>{{ membership.membership }}</td>
@@ -31,7 +31,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="6" class="d-flex justify-content-around">
+          <b-col cols="12" sm="7" md="4" class="d-flex justify-content-around">
             <div class="card header" style="max-height: 10rem">
               <div
                 class="
@@ -53,29 +53,6 @@
                 <NuxtLink to="/Dashboard/Membership/members-data">
                   <h5>Lihat Detail</h5>
                 </NuxtLink>
-              </div>
-            </div>
-            <div class="card header" style="max-height: 10rem">
-              <div
-                class="
-                  card-body
-                  d-flex
-                  justify-content-around
-                  align-items-center
-                "
-              >
-                <b-icon
-                  class="h2 mr-1"
-                  style="color: #0c303d"
-                  icon="folder-fill"
-                >
-                </b-icon>
-                <h4>History Payment</h4>
-              </div>
-              <div class="card-footer">
-                <NuxtLink to="/Dashboard/Membership/history-payment"
-                  ><h5>Lihat Detail</h5></NuxtLink
-                >
               </div>
             </div>
           </b-col>
@@ -138,19 +115,19 @@ export default {
       ],
     }
   },
-  computed: {
-    memberships() {
-      return this.$store.state.memberships
-    },
-  },
-  mounted() {
-    this.getMembership()
-  },
-  methods: {
-    getMembership() {
-      this.$store.dispatch('getMembership')
-    },
-  },
+  // computed: {
+  //   memberships() {
+  //     return this.$store.state.memberships
+  //   },
+  // },
+  // mounted() {
+  //   this.getMembership()
+  // },
+  // methods: {
+  //   getMembership() {
+  //     this.$store.dispatch('getMembership')
+  //   },
+  // },
 }
 </script>
 <style scoped>
@@ -163,4 +140,13 @@ a {
   text-decoration: none;
   color: white;
 }
+@media only screen and (max-width: 460px) {
+  .card-body {
+    max-width: 20%;
+  }
+  .members {
+    align-content: center;
+  }
+}
+</style>
 </style>
