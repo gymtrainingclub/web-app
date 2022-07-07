@@ -1,5 +1,5 @@
 <template>
-  <div class="box-center">
+  <div class="box-center col-lg-7">
     <div class="card border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
@@ -7,12 +7,12 @@
         </div>
         <form>
           <div class="form-group">
-            <label for="exampleInputUsername">ID Admin</label>
+            <label for="exampleInputUsername">Email</label>
             <input
               type="text"
               class="form-control"
               id="exampleInputUsername"
-              placeholder="ID Admin"
+              placeholder="Email"
               v-model="email"
             />
           </div>
@@ -27,7 +27,7 @@
             />
           </div>
           <div class="text-right">
-            <NuxtLink to="/auth/login" class="forgot-password">
+            <NuxtLink to="/user/auth/forgot-password" class="forgot-password">
               Forgot Password ?
             </NuxtLink>
           </div>
@@ -92,18 +92,12 @@ button {
   color: black;
 }
 .box-center {
-  width: 55%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
 }
 @media only screen and (max-width: 460px) {
-  .box-center {
-    width: 90%;
-    top: 65%;
-    padding-bottom: 5%;
-  }
   button {
     width: 100%;
   }

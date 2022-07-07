@@ -1,5 +1,5 @@
 <template>
-  <div class="box-center">
+  <div class="box-center col-lg-7">
     <div class="card shadow-lg border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
@@ -163,18 +163,13 @@ button {
   width: 30%;
 }
 .box-center {
-  width: 60%;
   position: absolute;
-  top: 85%;
   left: 50%;
   padding-bottom: 3%;
-  padding-top: 5%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 3%);
 }
 @media only screen and (max-width: 460px) {
   .box-center {
-    width: 90%;
-    top: 65%;
     padding-bottom: 5%;
   }
   button {
