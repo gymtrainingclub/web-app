@@ -1,6 +1,6 @@
 <template>
-	<div class="box-center">
-		<div class="card p-5">
+	<div class="box-center col-lg-7">
+		<div class="card shadow-sm p-5">
 			<div class="card-body">
 				<div class="text-center">
 					<h3>
@@ -43,7 +43,6 @@ export default {
 
 <style scoped>
 .box-center {
-	width: 50%;
 	position: absolute;
 	top: 50%;
 	left: 50%;

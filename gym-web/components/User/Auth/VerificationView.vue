@@ -1,5 +1,5 @@
 <template>
-	<div class="box-center">
+	<div class="box-center col-lg-7">
 		<div class="card text-center p-5">
 			<div class="card-body">
 				<b-icon icon="envelope" class="h1"></b-icon>
@@ -27,7 +27,6 @@ export default {
 
 <style scoped>
 .box-center {
-	width: 55%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
