@@ -2,7 +2,7 @@
   <div>
     <NavbarView />
     <b-container class="p-5 mt-5">
-      <h1>Profile</h1>
+      <h2>Profile</h2>
       <b-row class="mt-5">
         <b-col cols="12" sm="4" md="4" class="text-center">
           <div>
@@ -16,14 +16,13 @@
         <b-col cols="12" sm="12" md="8">
           <b-form>
             <b-form-group>
-              <label><strong> ID </strong></label>
+              <label><strong> ID Admin </strong></label>
               <b-form-input :value="profiles.id" disabled></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Nama </strong></label>
               <b-form-input :value="profiles.name" disabled></b-form-input>
             </b-form-group>
-
             <b-form-group>
               <label><strong> Email </strong></label>
               <b-form-input
@@ -32,14 +31,15 @@
                 disabled
               ></b-form-input>
             </b-form-group>
-
             <b-form-group>
               <label><strong> Password </strong></label>
               <b-form-input type="password" disabled> </b-form-input>
               <!-- <b-icon icon="eye-slash-fill"></b-icon> -->
             </b-form-group>
             <div class="d-flex justify-content-end">
-              <b-button style="background: #0c303d">Change</b-button>
+              <b-button style="background: #0c303d; width: 100px">
+                Save
+              </b-button>
             </div>
           </b-form>
         </b-col>

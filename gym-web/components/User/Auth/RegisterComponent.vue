@@ -99,14 +99,20 @@
               v-model="confirmPassword"
             />
           </div>
-          <div class="d-flex justify-content-center mt-2">
+          <div class="d-flex justify-content-center mt-4">
             <button
               type="button"
               class="btn btn-dark font-weight-bold"
               @click="handleRegister"
             >
-              Daftar Akun
+              Register
             </button>
+          </div>
+          <div class="text-center mt-3">
+            Have account ?
+            <NuxtLink to="/user/auth/login" class="text-primary">
+              Login
+            </NuxtLink>
           </div>
         </form>
       </div>
