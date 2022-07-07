@@ -1,13 +1,13 @@
 <template>
   <div>
-    <RegisterComponent />
+    <RegisterView />
   </div>
 </template>
 
 <script>
-import RegisterComponent from '@/components/User/Auth/RegisterComponent.vue'
+import RegisterView from '@/components/User/Auth/RegisterView.vue'
 export default {
   name: 'RegisterUser',
-  components: { RegisterComponent },
+  components: { RegisterView },
 }
 </script>

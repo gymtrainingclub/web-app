@@ -3,7 +3,7 @@
 		<div class="card p-5">
 			<div class="card-body">
 				<div class="text-center">
-					<h3 class="font-weight-bold">
+					<h3>
 						<NuxtLink to="/user/auth/login" class="text-none">
 							Forgot Your Password ?
 						</NuxtLink>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-	name: 'ForgotPassComponent',
+	name: 'ForgotPassView',
 }
 </script>
 

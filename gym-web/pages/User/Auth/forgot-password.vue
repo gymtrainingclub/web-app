@@ -1,13 +1,13 @@
 <template>
 	<div>
-		<ForgotPassComponent />
+		<ForgotPassView />
 	</div>
 </template>
 
 <script>
-import ForgotPassComponent from '@/components/User/Auth/ForgotPassComponent.vue'
+import ForgotPassView from '@/components/User/Auth/ForgotPassView.vue'
 export default {
 	name: 'ForgotPassUser',
-	components: { ForgotPassComponent },
+	components: { ForgotPassView },
 }
 </script>
