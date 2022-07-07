@@ -7,12 +7,12 @@
         </div>
         <form>
           <div class="form-group">
-            <label for="exampleInputUsername">ID Admin</label>
+            <label for="exampleInputUsername">Email</label>
             <input
               type="text"
               class="form-control"
               id="exampleInputUsername"
-              placeholder="ID Admin"
+              placeholder="Email"
               v-model="email"
             />
           </div>
@@ -27,7 +27,7 @@
             />
           </div>
           <div class="text-right">
-            <NuxtLink to="/auth/login" class="forgot-password">
+            <NuxtLink to="/user/auth/forgot-password" class="forgot-password">
               Forgot Password ?
             </NuxtLink>
           </div>
@@ -40,12 +40,10 @@
               Log In
             </button>
           </div>
-          <div class="d-flex justify-content-center mt-3">
-            <NuxtLink
-              to="/auth/register"
-              class="btn btn-outline-dark font-weight-bold"
-            >
-              Log in as Customer
+          <div class="text-center mt-3">
+            Don't Have Account ?
+            <NuxtLink to="/user/auth/register" class="text-primary">
+              Sign Up
             </NuxtLink>
           </div>
         </form>

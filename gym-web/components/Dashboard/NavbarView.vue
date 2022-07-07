@@ -9,7 +9,6 @@
           <b-icon v-b-toggle.sidebar-backdrop class="h3" icon="list"></b-icon>
         </div>
       </b-navbar-brand>
-
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto mr-3">
@@ -27,8 +26,9 @@
     </b-navbar>
   </div>
 </template>
+
 <script>
-import SidebarView from '@/components/Dashboard/sidebar.vue'
+import SidebarView from '@/components/Dashboard/SidebarView.vue'
 export default {
   name: 'NavbarView',
   components: {
@@ -36,6 +36,7 @@ export default {
   },
 }
 </script>
+
 <style>
 span {
   color: white;

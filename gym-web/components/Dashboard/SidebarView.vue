@@ -22,6 +22,7 @@
     </b-sidebar>
   </div>
 </template>
+
 <script>
 export default {
   name: 'SidebarSection',
@@ -59,12 +60,12 @@ export default {
           to: '/Dashboard/news-content',
           icon: 'newspaper',
         },
-        // {title: 'Log Out', to: '/admin/dashboard'},
       ],
     }
   },
 }
 </script>
+
 <style scoped>
 .sidebar-btn {
   background-color: #0c303d;
