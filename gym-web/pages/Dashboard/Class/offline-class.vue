@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-import NavbarView from '@/components/Dashboard/NavbarView.vue'
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 export default {
   name: 'OfflineClass',
   components: {

@@ -5,16 +5,18 @@
       <h3 class="title">Edit Newsletter</h3>
       <div class="mt-4 new">
         <b-form-group class="input">
-          <label><strong>News Title</strong></label>
-          <b-form-input type="text" placeholder="Title" trim></b-form-input>
+          <label><strong>Newsletter Title</strong></label>
+          <b-form-input
+            v-model="this.$store.state.newsletter[$route.params.id].title"
+            type="text"
+            placeholder="Title"
+            trim
+          ></b-form-input>
         </b-form-group>
         <div class="d-flex justify-around">
           <b-form-group class="input-select mr-4">
             <label><strong>Choose Category</strong></label>
-            <b-form-select
-              v-model="selected"
-              :options="options"
-            ></b-form-select>
+            <b-form-select :options="options"></b-form-select>
           </b-form-group>
           <b-form-group class="input-select">
             <label><strong>Choose Pic</strong></label>
@@ -27,12 +29,18 @@
         </div>
         <b-form-group class="input">
           <label><strong> Author</strong></label>
-          <b-form-input type="text" placeholder="Author" trim></b-form-input>
+          <b-form-input
+            v-model="this.$store.state.newsletter[$route.params.id].created_by"
+            type="text"
+            placeholder="Author"
+            trim
+          ></b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Description</strong></label>
           <b-form-textarea
             id="textarea-default"
+            v-model="this.$store.state.newsletter[$route.params.id].body"
             placeholder="Description"
           ></b-form-textarea>
         </b-form-group>
@@ -42,7 +50,7 @@
   </div>
 </template>
 <script>
-import NavbarView from '@/components/Dashboard/NavbarView.vue'
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 
 export default {
   name: 'EditNewsletter',

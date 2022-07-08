@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import SidebarView from '@/components/Dashboard/SidebarView.vue'
+import SidebarView from '@/components/Dashboard/Navigasi/SidebarView.vue'
 export default {
   name: 'NavbarView',
   components: {

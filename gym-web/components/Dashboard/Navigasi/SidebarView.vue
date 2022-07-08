@@ -11,15 +11,41 @@
           <b-img class="image" src="@/assets/img/logo.png"></b-img>
         </div>
         <div v-for="(link, index) in routes" :key="index">
-          <NuxtLink :to="link.to">
-            <b-button active class="sidebar-btn mt-3" block>
+          <NuxtLink :to="link.to" active-class="active">
+            <b-button class="sidebar-btn mt-3" block>
               <b-icon :icon="link.icon"></b-icon>
               {{ link.title }}
             </b-button>
           </NuxtLink>
         </div>
+        <button
+          type="button"
+          v-b-modal.logout
+          class="btn btn-dark btn-block sidebar-btn mt-5"
+        >
+          <b-icon icon="box-arrow-right"></b-icon> Log Out
+        </button>
       </div>
     </b-sidebar>
+    <b-modal id="logout" hide-footer hide-header>
+      <div class="text-center m-5">
+        <h2>Log Out</h2>
+        <p>Are you sure want to Log out?</p>
+        <div class="d-flex justify-content-around">
+          <b-button
+            variant="outline-secondary"
+            class="cancel"
+            @click="$bvModal.hide('logout')"
+            >Cancel</b-button
+          >
+          <NuxtLink to="/Dashboard/Auth/login">
+            <b-button style="background: #0c303d" class="ps-5 pe-5"
+              >Yes</b-button
+            >
+          </NuxtLink>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -73,11 +99,17 @@ export default {
 a {
   text-decoration: none;
 }
+#sidebar-backdrop {
+  background-color: #0c303d;
+}
 .sidebar-btn:hover {
   background: #f15a24;
 }
 .image {
   max-width: 25%;
   justify-content: center;
+}
+.cancel:hover {
+  background: #f15a24;
 }
 </style>

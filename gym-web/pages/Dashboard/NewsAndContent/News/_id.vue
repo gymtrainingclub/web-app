@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EditNews from '@/components/Dashboard/NewsAndContent/news/edit-news.vue'
+import EditNews from '~/components/Dashboard/NewsAndContent/news/edit-news.vue'
 export default {
   name: 'EditNewsletter',
   components: {

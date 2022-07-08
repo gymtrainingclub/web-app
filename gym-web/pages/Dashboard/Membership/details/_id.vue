@@ -84,21 +84,26 @@
           </b-form>
         </b-col>
         <b-col cols="3" class="mt-4">
-          <b-button style="background: #0c303d">
+          <b-button v-b-modal.delete style="background: #0c303d">
             Delete <b-icon icon="trash"></b-icon
           ></b-button>
         </b-col>
       </b-row>
+      <b-modal id="delete" hide-header hide-footer>
+        <DeleteComponent :title="this.$route.params.id.name" />
+      </b-modal>
     </b-container>
   </div>
 </template>
 <script>
-import NavbarView from '@/components/Dashboard/NavbarView.vue'
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
+import DeleteComponent from '@/components/Dashboard/DeleteComponent.vue'
 
 export default {
   name: 'DetailsMembership',
   components: {
     NavbarView,
+    DeleteComponent,
   },
 }
 </script>

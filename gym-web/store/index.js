@@ -41,6 +41,7 @@ export const actions = {
         'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/newsletter'
       )
       .then((response) => {
+        console.log('response', response.data)
         Store.commit('setNewsletter', response.data.data)
       })
   },
@@ -54,7 +55,7 @@ export const actions = {
   getInstructor(Store) {
     axios
       .get(
-        'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/api/v1/instructor'
+        'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/instructor'
       )
       .then((response) => {
         Store.commit('setInstructor', response.data.data)

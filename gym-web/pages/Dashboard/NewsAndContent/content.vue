@@ -60,7 +60,7 @@
   </div>
 </template>
 <script>
-import NavbarView from '@/components/Dashboard/NavbarView.vue'
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 import DetailsContent from '@/components/Dashboard/NewsAndContent/content/details-content.vue'
 
 export default {
