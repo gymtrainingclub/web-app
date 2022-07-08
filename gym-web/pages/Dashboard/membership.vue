@@ -58,7 +58,6 @@
           </b-col>
         </b-row>
       </b-card-group>
-      <b-card-group> </b-card-group>
     </b-container>
   </div>
 </template>

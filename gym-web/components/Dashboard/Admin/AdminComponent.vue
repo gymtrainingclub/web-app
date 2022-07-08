@@ -60,7 +60,8 @@
           title="Edit Data Admin"
           hide-footer
         >
-          <b-form-group class="input">
+          <EditDataAdmin />
+          <!-- <b-form-group class="input">
             <label><strong>Admin Name</strong></label>
             <b-form-input type="text" trim></b-form-input>
           </b-form-group>
@@ -81,25 +82,24 @@
             <b-form-input type="text" trim></b-form-input>
           </b-form-group>
 
-          <b-button style="background: #0c303d">Save</b-button>
+          <b-button style="background: #0c303d">Save</b-button> -->
         </b-modal>
         <b-modal id="delete" hide-header hide-footer>
           <DeleteComponent :title="title" />
         </b-modal>
-        <!-- <b-button style="background: #0c303d">Delete</b-button> -->
       </div>
     </div>
   </div>
 </template>
 <script>
 import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
-// import EditDataAdmin from '~/components/Dashboard/Admin/EditDataAdmin.vue'
+import EditDataAdmin from '~/components/Dashboard/Admin/EditDataComponent.vue'
 import DeleteComponent from '~/components/Dashboard/DeleteComponent.vue'
 export default {
   name: 'AdminData',
   components: {
     NavbarView,
-    // EditDataAdmin,
+    EditDataAdmin,
     DeleteComponent,
   },
   data() {

@@ -46,7 +46,7 @@
             <td>{{ newsletter.created_at }}</td>
             <td>
               <b-icon
-                v-b-modal.modal-1
+                @click="showModal(newsletter)"
                 class="mr-1"
                 icon="pencil-square"
               ></b-icon>
@@ -55,28 +55,22 @@
           </tr>
         </tbody>
       </table>
-      <b-modal
-        v-for="(newsletter, index) in newsletters"
-        :key="index"
-        id="modal-1"
-        title="Details News"
-        hide-footer
-      >
+      <b-modal id="modal-1" title="Details News" hide-footer>
         <b-row>
           <b-col cols="6">
-            <b-img class="details" :src="newsletter.image"></b-img>
+            <b-img class="details" :src="selectedItem.image"></b-img>
           </b-col>
           <b-col cols="6">
             <h5>Tips Workout</h5>
             <h6 class="text-capitalize">
-              {{ newsletter.title }}
+              {{ selectedItem.title }}
             </h6>
-            <p>by {{ newsletter.created_by }}</p>
-            <p>{{ newsletter.created_at }}</p>
+            <p>by {{ selectedItem.created_by }}</p>
+            <p>{{ selectedItem.created_at }}</p>
           </b-col>
         </b-row>
         <p>
-          {{ newsletter.body }}
+          {{ selectedItem.body }}
         </p>
 
         <div class="d-flex justify-content-end">
@@ -89,7 +83,7 @@
           <NuxtLink
             :to="{
               name: `Dashboard-NewsAndContent-News-id`,
-              params: { id: index },
+              params: { id: selectedItem },
             }"
           >
             <b-button class="pr-4 pl-4" style="background-color: #0c303d"
@@ -118,6 +112,7 @@ export default {
 
   data() {
     return {
+      selectedItem: {},
       buttons: ['Lifestyle', 'Gym News', 'Tips Workout', 'Diet'],
       title: 'Article',
     }
@@ -133,6 +128,10 @@ export default {
   methods: {
     getNewsletter() {
       this.$store.dispatch('getNewsletter')
+    },
+    showModal(item) {
+      this.selectedItem = item
+      this.$root.$emit('bv::show::modal', 'modal-1')
     },
   },
 }
