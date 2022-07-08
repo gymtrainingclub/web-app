@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
-      title: 'File',
+      title: 'Member',
       items: [
         {
           id: '001',
