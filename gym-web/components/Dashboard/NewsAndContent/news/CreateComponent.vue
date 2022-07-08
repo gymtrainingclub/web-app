@@ -2,21 +2,24 @@
   <div>
     <NavbarView />
     <div class="p-5 mt-5">
-      <h3 class="title">Edit Newsletter</h3>
+      <h3>
+        <NuxtLink to="/Dashboard/NewsAndContent/news">
+          <b-icon icon="chevron-left"></b-icon>
+        </NuxtLink>
+        Create Newsletter
+      </h3>
       <div class="mt-4 new">
         <b-form-group class="input">
-          <label><strong>Newsletter Title</strong></label>
-          <b-form-input
-            v-model="this.$store.state.newsletter[$route.params.id].title"
-            type="text"
-            placeholder="Title"
-            trim
-          ></b-form-input>
+          <label><strong>News Title</strong></label>
+          <b-form-input type="text" placeholder="Title" trim></b-form-input>
         </b-form-group>
         <div class="d-flex justify-around">
           <b-form-group class="input-select mr-4">
             <label><strong>Choose Category</strong></label>
-            <b-form-select :options="options"></b-form-select>
+            <b-form-select
+              v-model="selected"
+              :options="options"
+            ></b-form-select>
           </b-form-group>
           <b-form-group class="input-select">
             <label><strong>Choose Pic</strong></label>
@@ -29,22 +32,16 @@
         </div>
         <b-form-group class="input">
           <label><strong> Author</strong></label>
-          <b-form-input
-            v-model="this.$store.state.newsletter[$route.params.id].created_by"
-            type="text"
-            placeholder="Author"
-            trim
-          ></b-form-input>
+          <b-form-input type="text" placeholder="Author" trim></b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Description</strong></label>
           <b-form-textarea
             id="textarea-default"
-            v-model="this.$store.state.newsletter[$route.params.id].body"
             placeholder="Description"
           ></b-form-textarea>
         </b-form-group>
-        <b-button style="background: #0c303d">Save change</b-button>
+        <b-button style="background: #0c303d">Save</b-button>
       </div>
     </div>
   </div>
@@ -53,13 +50,13 @@
 import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 
 export default {
-  name: 'EditNewsletter',
+  name: 'CreateNewsletterComponent',
   components: {
     NavbarView,
   },
   data() {
     return {
-      selected: 'Tips Workout',
+      selected: '',
       file: null,
       options: [
         { text: 'Lifestyle' },
@@ -84,8 +81,5 @@ a {
 }
 .new {
   padding-left: 35px;
-}
-.title {
-  margin-left: 33px;
 }
 </style>

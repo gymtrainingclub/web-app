@@ -6,7 +6,7 @@
         <NuxtLink to="/Dashboard/booking-class">
           <b-icon variant="dark" icon="chevron-left"></b-icon>
         </NuxtLink>
-        Fit Rush
+        {{ this.$route.params.id.class }}
       </h3>
       <div class="m-4">
         <b-row>
@@ -18,9 +18,11 @@
                 alt="..."
               />
               <div class="card-img-overlay mt-4">
-                <h5 class="card-title mt-5">Fit Rush</h5>
+                <h5 class="card-title mt-5">
+                  {{ this.$route.params.id.class }}
+                </h5>
                 <span>Name Place</span>
-                <p class="card-text">By Trainer</p>
+                <p class="card-text">By {{ this.$route.params.id.trainer }}</p>
                 <div class="d-flex justify-content-end">
                   <b-button size="sm" variant="light" pill>60 Min</b-button>
                 </div>
@@ -39,10 +41,15 @@
             </b-row> -->
           </b-col>
           <b-col cols="12" sm="6" md="4">
-            <p>22 Mei 2022</p>
-            <p>08:00 sd 09:00</p>
-            <p>Mr. Lex</p>
-            <p><a href="#">https://meet.google.com/akdhja</a></p>
+            <p>{{ this.$route.params.id.date }}</p>
+            <p>{{ this.$route.params.id.time }}</p>
+            <p>{{ this.$route.params.id.trainer }}</p>
+            <p>
+              <a :href="this.$route.params.id.link"
+                >{{ this.$route.params.id.link }}
+                {{ this.$route.params.id.place }}</a
+              >
+            </p>
           </b-col>
         </b-row>
         <hr />

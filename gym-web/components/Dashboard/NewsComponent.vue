@@ -31,6 +31,9 @@
             <th scope="col">Title</th>
             <th scope="col">Author</th>
             <th scope="col">Date</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col">
               <NuxtLink to="/Dashboard/NewsAndContent/News/create-newsletter">
                 <b-icon class="h3" icon="plus-circle"></b-icon>
@@ -45,12 +48,19 @@
             <td>{{ newsletter.created_by }}</td>
             <td>{{ newsletter.created_at }}</td>
             <td>
-              <b-icon
-                @click="showModal(newsletter)"
-                class="mr-1"
-                icon="pencil-square"
-              ></b-icon>
-              <b-icon v-b-modal.delete icon="trash"></b-icon>
+              <NuxtLink
+                :to="{
+                  name: `Dashboard-NewsAndContent-News-id`,
+                  params: { id: index },
+                }"
+              >
+                <b-icon class="mr-1" icon="pencil-square"></b-icon>
+              </NuxtLink>
+            </td>
+            <td><b-icon v-b-modal.delete icon="trash"></b-icon></td>
+            <td @click="showModal(newsletter)">
+              <i>See more</i>
+              <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
             </td>
           </tr>
         </tbody>
@@ -80,7 +90,7 @@
             variant="outline-secondary"
             >Delete</b-button
           >
-          <NuxtLink
+          <!-- <NuxtLink
             :to="{
               name: `Dashboard-NewsAndContent-News-id`,
               params: { id: selectedItem },
@@ -89,7 +99,7 @@
             <b-button class="pr-4 pl-4" style="background-color: #0c303d"
               >Edit</b-button
             >
-          </NuxtLink>
+          </NuxtLink> -->
         </div>
       </b-modal>
       <b-modal id="delete" hide-header hide-footer>
@@ -103,7 +113,7 @@ import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 import DeleteComponent from '@/components/Dashboard/DeleteComponent.vue'
 
 export default {
-  name: 'NewsPage',
+  name: 'NewsComponent',
 
   components: {
     NavbarView,

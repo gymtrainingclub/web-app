@@ -47,7 +47,12 @@
               <td>{{ item.time }}</td>
               <td>{{ item.trainer }}</td>
               <td>
-                <NuxtLink to="/Dashboard/Booking/Details/_id">
+                <NuxtLink
+                  :to="{
+                    name: `Dashboard-Booking-Details-id`,
+                    params: { id: item },
+                  }"
+                >
                   <i>See more</i>
                   <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
                 </NuxtLink>
@@ -78,7 +83,7 @@ export default {
           trainer: 'Mr.Lex',
         },
         {
-          class: 'Fit Box',
+          class: 'Fit Rush',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           link: 'https://meet.google.com/fdsjfhakj',
@@ -92,14 +97,14 @@ export default {
           trainer: 'Mr.Lex',
         },
         {
-          class: 'Fit Box',
+          class: 'Mat Palites',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           link: 'https://meet.google.com/fdsjfhakj',
           trainer: 'Mr.Lex',
         },
         {
-          class: 'Fit Box',
+          class: 'Strong Nation',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           link: 'https://meet.google.com/fdsjfhakj',

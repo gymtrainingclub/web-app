@@ -44,7 +44,12 @@
               <td>{{ item.time }}</td>
               <td>{{ item.trainer }}</td>
               <td>
-                <NuxtLink to="/Dashboard/Booking/Details/_id">
+                <NuxtLink
+                  :to="{
+                    name: `Dashboard-Booking-Details-id`,
+                    params: { id: item },
+                  }"
+                >
                   <i>See more</i>
                   <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
                 </NuxtLink>
@@ -68,7 +73,14 @@ export default {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       items: [
         {
-          class: 'Fit Box',
+          class: 'Fit Cycle',
+          date: '20 Mei 2022',
+          time: '08:00 sd 09:00',
+          place: 'CapstoneGym BSD/Lantai 2 R.3',
+          trainer: 'Mr.Lex',
+        },
+        {
+          class: 'Fit Rush',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
@@ -82,21 +94,14 @@ export default {
           trainer: 'Mr.Lex',
         },
         {
-          class: 'Fit Box',
+          class: 'Mat Pilater',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
           trainer: 'Mr.Lex',
         },
         {
-          class: 'Fit Box',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          place: 'CapstoneGym BSD/Lantai 2 R.3',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
+          class: 'Strong Nation',
           date: '20 Mei 2022',
           time: '08:00 sd 09:00',
           place: 'CapstoneGym BSD/Lantai 2 R.3',
