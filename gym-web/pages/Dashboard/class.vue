@@ -6,7 +6,7 @@
         <div class="card" style="max-width: 17rem">
           <div class="card-body">
             <h3>
-              <b-icon style="color: #0c303d" icon="folder-fill"> </b-icon>
+              <b-icon style="color: #0c303d" icon="camera-video"> </b-icon>
               Online Class
             </h3>
           </div>
@@ -19,7 +19,7 @@
         <div class="card" style="max-width: 17rem">
           <div class="card-body">
             <h3>
-              <b-icon style="color: #0c303d" icon="folder-fill"> </b-icon>
+              <b-icon style="color: #0c303d" icon="wifi-off"> </b-icon>
               Offine Class
             </h3>
           </div>

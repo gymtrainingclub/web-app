@@ -18,6 +18,9 @@
             <div class="mt-2">
               <h5>GOLD MEMBER</h5>
             </div>
+            <b-button v-b-modal.delete style="background: #0c303d">
+              Delete <b-icon icon="trash"></b-icon
+            ></b-button>
           </div>
         </b-col>
         <b-col cols="6">
@@ -83,14 +86,10 @@
             </div>
           </b-form>
         </b-col>
-        <b-col cols="3" class="mt-4">
-          <b-button v-b-modal.delete style="background: #0c303d">
-            Delete <b-icon icon="trash"></b-icon
-          ></b-button>
-        </b-col>
+        <b-col cols="3" class="mt-4"> </b-col>
       </b-row>
       <b-modal id="delete" hide-header hide-footer>
-        <DeleteComponent :title="this.$route.params.id.name" />
+        <DeleteComponent :title="title" />
       </b-modal>
     </b-container>
   </div>
@@ -104,6 +103,11 @@ export default {
   components: {
     NavbarView,
     DeleteComponent,
+  },
+  data() {
+    return {
+      title: 'File',
+    }
   },
 }
 </script>

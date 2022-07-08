@@ -64,7 +64,7 @@ export default {
         {
           title: 'Admin',
           to: '/Dashboard/admin',
-          icon: 'person-workspace',
+          icon: 'person-bounding-box',
         },
         {
           title: 'Membership',
