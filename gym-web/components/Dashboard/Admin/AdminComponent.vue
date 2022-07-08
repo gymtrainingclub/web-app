@@ -1,0 +1,181 @@
+<template>
+  <div>
+    <NavbarView />
+    <div class="p-5 mt-5">
+      <h3>
+        <NuxtLink to="/Dashboard/admin">
+          <b-icon icon="chevron-left"></b-icon>
+        </NuxtLink>
+        Admin Capstone Gym Data
+      </h3>
+      <div class="admin">
+        <b-nav-form class="mt-5">
+          <b-form-input
+            size="lg"
+            class="mr-2 search"
+            placeholder="Search"
+          ></b-form-input>
+          <b-button size="lg" class="my-2 my-sm-0 btn-search" type="submit"
+            ><b-icon icon="search"></b-icon
+          ></b-button>
+        </b-nav-form>
+        <table class="table mt-5 table-borderless text-center">
+          <thead>
+            <tr>
+              <th scope="col"><input type="checkbox" /></th>
+              <th scope="col">Id Admin</th>
+              <th scope="col">Nama Admin</th>
+              <th scope="col">No Handphone</th>
+              <th scope="col">Password</th>
+              <th scope="col">Tanggal Join</th>
+              <th scope="col">
+                <NuxtLink to="/Dashboard/Admin/new-admin">
+                  <b-icon class="h2" icon="plus-circle"></b-icon>
+                </NuxtLink>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(admin, index) in items" :key="index">
+              <th scope="row"><input type="checkbox" /></th>
+              <td>{{ admin.id }}</td>
+              <td>{{ admin.name }}</td>
+              <td>{{ admin.number }}</td>
+              <td>{{ admin.password }}</td>
+              <td>{{ admin.tgl }}</td>
+              <td>
+                <b-icon
+                  v-b-modal.modal-prevent-closing
+                  icon="pencil-square"
+                  class="mr-1"
+                ></b-icon>
+                <b-icon v-b-modal.delete icon="trash"></b-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <b-modal
+          id="modal-prevent-closing"
+          class="mt-4 new"
+          title="Edit Data Admin"
+          hide-footer
+        >
+          <EditDataAdmin />
+          <!-- <b-form-group class="input">
+            <label><strong>Admin Name</strong></label>
+            <b-form-input type="text" trim></b-form-input>
+          </b-form-group>
+          <b-form-group class="input">
+            <label><strong>ID Admin</strong></label>
+            <b-form-input type="text" trim></b-form-input>
+          </b-form-group>
+          <b-form-group class="input">
+            <label><strong>No Handphone</strong></label>
+            <b-form-input type="text" trim></b-form-input>
+          </b-form-group>
+          <b-form-group class="input">
+            <label><strong>Password</strong></label>
+            <b-form-input type="text" trim></b-form-input>
+          </b-form-group>
+          <b-form-group class="input">
+            <label><strong>Confirm Password</strong></label>
+            <b-form-input type="text" trim></b-form-input>
+          </b-form-group>
+
+          <b-button style="background: #0c303d">Save</b-button> -->
+        </b-modal>
+        <b-modal id="delete" hide-header hide-footer>
+          <DeleteComponent :title="title" />
+        </b-modal>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
+import EditDataAdmin from '~/components/Dashboard/Admin/EditDataComponent.vue'
+import DeleteComponent from '~/components/Dashboard/DeleteComponent.vue'
+export default {
+  name: 'AdminData',
+  components: {
+    NavbarView,
+    EditDataAdmin,
+    DeleteComponent,
+  },
+  data() {
+    return {
+      title: 'Admin',
+      inputs: [
+        { label: 'Admin Name', type: 'text', placeholder: 'Full Name' },
+        { label: 'Id Admin', type: 'text', placeholder: 'Id Number' },
+        { label: 'No Handphone', type: 'text', placeholder: 'xxxxxxxxxxxx' },
+        { label: 'Password', type: 'password', placeholder: 'Password' },
+        {
+          label: 'Confirm Password',
+          type: 'password',
+          placeholder: 'Confirm Password',
+        },
+      ],
+      items: [
+        {
+          id: '001',
+          name: 'Jeremy',
+          number: '9023483284',
+          password: 'Gym123',
+
+          tgl: '31 Mei 2022',
+        },
+        {
+          id: '002',
+          name: 'Jeremy',
+          number: '9023483284',
+          password: 'Gym123',
+
+          tgl: '31 Mei 2022',
+        },
+        {
+          id: '003',
+          name: 'Jeremy',
+          number: '9023483284',
+          password: 'Gym123',
+
+          tgl: '31 Mei 2022',
+        },
+        {
+          id: '004',
+          name: 'Jeremy',
+          number: '9023483284',
+          password: 'Gym123',
+
+          tgl: '31 Mei 2022',
+        },
+        {
+          id: '005',
+          name: 'Jeremy',
+          number: '9023483284',
+          password: 'Gym123',
+
+          tgl: '31 Mei 2022',
+        },
+      ],
+    }
+  },
+}
+</script>
+<style scoped>
+.btn-search {
+  width: 113px;
+  color: #0c303d;
+  background-color: #f15a24;
+}
+.search {
+  width: 600px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.admin {
+  padding-left: 35px;
+}
+</style>

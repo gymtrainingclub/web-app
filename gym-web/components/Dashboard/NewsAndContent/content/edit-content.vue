@@ -6,30 +6,41 @@
       <div class="mt-4 new">
         <b-form-group class="input">
           <label><strong>Content Title</strong></label>
-          <b-form-input type="text" placeholder="Title" trim></b-form-input>
+          <b-form-input
+            type="text"
+            v-model="this.$route.params.id.title"
+            placeholder="Title"
+            trim
+          ></b-form-input>
         </b-form-group>
         <b-form-group class="input-file">
           <label><strong>Choose Video</strong></label>
-          <b-form-file v-model="file"></b-form-file>
+          <b-form-file></b-form-file>
         </b-form-group>
         <b-form-group class="input">
           <label><strong> Author</strong></label>
-          <b-form-input type="text" placeholder="Author" trim></b-form-input>
+          <b-form-input
+            v-model="this.$route.params.id.author"
+            type="text"
+            placeholder="Author"
+            trim
+          ></b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Description</strong></label>
           <b-form-textarea
+            v-model="this.$route.params.id.desc"
             id="textarea-default"
             placeholder="Description"
           ></b-form-textarea>
         </b-form-group>
-        <b-button style="background: #0c303d">Save</b-button>
+        <b-button style="background: #0c303d">Save change</b-button>
       </div>
     </div>
   </div>
 </template>
 <script>
-import NavbarView from '@/components/Dashboard/NavbarView.vue'
+import NavbarView from '@/components/Dashboard/Navigasi/NavbarView.vue'
 
 export default {
   name: 'EditContent',
