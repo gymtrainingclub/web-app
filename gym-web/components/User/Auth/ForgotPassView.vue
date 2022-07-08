@@ -38,6 +38,16 @@
 <script>
 export default {
 	name: 'ForgotPassView',
+	data() {
+		return {
+			email: '',
+		}
+	},
+	methods: {
+		handleResetPass() {
+			console.log(this.email)
+		},
+	},
 }
 </script>
 
