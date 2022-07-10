@@ -58,6 +58,9 @@ export default {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+.text-none {
+	color: black;
+}
 .text-none:hover {
 	text-decoration: none;
 	color: black;

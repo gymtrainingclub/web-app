@@ -19,13 +19,13 @@
 		>
 			<ul class="navbar-nav mr-5">
 				<li class="nav-item mr-5 mb-2">
-					<NuxtLink to="/auth/user/register" class="btn btn-white text-white">
+					<NuxtLink to="/user/auth/register" class="btn btn-white text-white">
 						Sign Up
 					</NuxtLink>
 				</li>
 				<li class="nav-item mb-2">
 					<NuxtLink
-						to="/auth/user/login"
+						to="/user/auth/login"
 						class="btn btn-custom rounded-pill px-5"
 					>
 						Login
