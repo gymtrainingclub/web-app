@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="content">
     <NavbarView />
     <b-container class="p-5 mt-5">
       <b-card-group deck>
@@ -43,9 +43,16 @@ export default {
 }
 </script>
 <style scoped>
+#content {
+  font-family: 'Roboto', sans-serif;
+}
+.card {
+  border-radius: 6px;
+}
 .card-footer {
   background: #0c303d;
   color: white;
+  border-radius: 0 0 6px 6px;
 }
 a {
   color: white;

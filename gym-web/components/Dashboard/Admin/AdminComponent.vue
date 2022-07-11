@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="admin-data">
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
@@ -60,29 +60,7 @@
           title="Edit Data Admin"
           hide-footer
         >
-          <EditDataAdmin />
-          <!-- <b-form-group class="input">
-            <label><strong>Admin Name</strong></label>
-            <b-form-input type="text" trim></b-form-input>
-          </b-form-group>
-          <b-form-group class="input">
-            <label><strong>ID Admin</strong></label>
-            <b-form-input type="text" trim></b-form-input>
-          </b-form-group>
-          <b-form-group class="input">
-            <label><strong>No Handphone</strong></label>
-            <b-form-input type="text" trim></b-form-input>
-          </b-form-group>
-          <b-form-group class="input">
-            <label><strong>Password</strong></label>
-            <b-form-input type="text" trim></b-form-input>
-          </b-form-group>
-          <b-form-group class="input">
-            <label><strong>Confirm Password</strong></label>
-            <b-form-input type="text" trim></b-form-input>
-          </b-form-group>
-
-          <b-button style="background: #0c303d">Save</b-button> -->
+          <EditDataAdmin id="admin-data" />
         </b-modal>
         <b-modal id="delete" hide-header hide-footer>
           <DeleteComponent :title="title" />
@@ -163,6 +141,9 @@ export default {
 }
 </script>
 <style scoped>
+#admin-data {
+  font-family: 'Roboto', sans-serif;
+}
 .btn-search {
   width: 113px;
   color: #0c303d;

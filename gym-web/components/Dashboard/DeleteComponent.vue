@@ -6,11 +6,11 @@
     <div class="d-flex justify-content-around">
       <b-button
         variant="outline-secondary"
-        class="cancel"
+        class="cancel shadow"
         @click="$bvModal.hide('delete')"
         >Cancel</b-button
       >
-      <b-button style="background: #0c303d">Delete</b-button>
+      <b-button class="shadow" style="background: #0c303d">Delete</b-button>
     </div>
   </div>
 </template>
@@ -21,6 +21,14 @@ export default {
 }
 </script>
 <style  scoped>
+#modal {
+  font-family: 'Roboto', sans-serif;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 20px;
+}
 .cancel:hover {
   background: #f15a24;
 }

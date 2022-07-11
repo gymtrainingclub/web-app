@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="newsletter">
     <NavbarView />
     <b-container class="p-5 m-5">
       <h2>
@@ -66,40 +66,32 @@
         </tbody>
       </table>
       <b-modal id="modal-1" title="Details News" hide-footer>
-        <b-row>
-          <b-col cols="6">
-            <b-img class="details" :src="selectedItem.image"></b-img>
-          </b-col>
-          <b-col cols="6">
-            <h5>Tips Workout</h5>
-            <h6 class="text-capitalize">
-              {{ selectedItem.title }}
-            </h6>
-            <p>by {{ selectedItem.created_by }}</p>
-            <p>{{ selectedItem.created_at }}</p>
-          </b-col>
-        </b-row>
-        <p>
-          {{ selectedItem.body }}
-        </p>
+        <div id="newsletter">
+          <b-row>
+            <b-col cols="6">
+              <b-img class="details" :src="selectedItem.image"></b-img>
+            </b-col>
+            <b-col cols="6">
+              <h5>Tips Workout</h5>
+              <h6 class="text-capitalize">
+                {{ selectedItem.title }}
+              </h6>
+              <p>by {{ selectedItem.created_by }}</p>
+              <p>{{ selectedItem.created_at }}</p>
+            </b-col>
+          </b-row>
+          <p>
+            {{ selectedItem.body }}
+          </p>
 
-        <div class="d-flex justify-content-end">
-          <b-button
-            v-b-modal.delete
-            class="mr-2 pr-4 pl-4"
-            variant="outline-secondary"
-            >Delete</b-button
-          >
-          <!-- <NuxtLink
-            :to="{
-              name: `Dashboard-NewsAndContent-News-id`,
-              params: { id: selectedItem },
-            }"
-          >
-            <b-button class="pr-4 pl-4" style="background-color: #0c303d"
-              >Edit</b-button
+          <div class="d-flex justify-content-end">
+            <b-button
+              v-b-modal.delete
+              class="mr-2 pr-4 pl-4"
+              variant="outline-secondary"
+              >Delete</b-button
             >
-          </NuxtLink> -->
+          </div>
         </div>
       </b-modal>
       <b-modal id="delete" hide-header hide-footer>
@@ -147,6 +139,9 @@ export default {
 }
 </script>
 <style scoped>
+#newsletter {
+  font-family: 'Roboto', sans-serif;
+}
 a {
   color: black;
   text-decoration: none;

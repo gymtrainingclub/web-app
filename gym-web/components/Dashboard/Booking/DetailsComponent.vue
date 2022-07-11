@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="details-booking">
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
@@ -10,7 +10,7 @@
       </h3>
       <div class="m-4">
         <b-row>
-          <b-col cols="12" sm="12" md="4">
+          <b-col cols="12" sm="12" md="4" class="mb-4">
             <div class="card bg-dark text-white img">
               <img
                 src="@/assets/img/details-book.jpg"
@@ -29,16 +29,11 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="12" sm="12" md="4">
-            <!-- <b-row>
-              <b-col cols="12" sm="6" md="6"> -->
+          <b-col cols="12" sm="6" md="4">
             <p>Class Date</p>
             <p>Class Time</p>
             <p>Class Trainer</p>
             <p>Class Link/Location</p>
-            <!-- </b-col>
-              
-            </b-row> -->
           </b-col>
           <b-col cols="12" sm="6" md="4">
             <p>{{ this.$route.params.id.date }}</p>
@@ -158,3 +153,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+#details-booking {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="admin">
     <NavbarView />
     <b-container class="p-5 mt-5">
       <div class="card" style="max-width: 15rem">
@@ -26,9 +26,16 @@ export default {
 }
 </script>
 <style scoped>
+#admin {
+  font-family: 'Roboto', sans-serif;
+}
+.card {
+  border-radius: 6px;
+}
 .card-footer {
   background: #0c303d;
   color: white;
+  border-radius: 0 0 6px 6px;
 }
 a {
   text-decoration: none;

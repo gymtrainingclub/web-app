@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="edit-content">
     <NavbarView />
     <div class="p-5 mt-5">
       <h3 class="title">Edit Content</h3>
@@ -55,6 +55,9 @@ export default {
 }
 </script>
 <style scoped>
+#edit-content {
+  font-family: 'Roboto', sans-serif;
+}
 .input {
   max-width: 70%;
 }

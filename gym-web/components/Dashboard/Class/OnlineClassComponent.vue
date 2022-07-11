@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="online-class">
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
@@ -169,6 +169,10 @@ export default {
 }
 </script>
 <style scoped>
+#online-class,
+.input {
+  font-family: 'Roboto', sans-serif;
+}
 .btn-search {
   width: 113px;
   color: #0c303d;

@@ -11,3 +11,9 @@ export default {
     DashboardComponent,
   },
 }
+</script>
+<style scoped>
+#dashboard {
+  font-family: 'Roboto', sans-serif;
+}
+</style>
