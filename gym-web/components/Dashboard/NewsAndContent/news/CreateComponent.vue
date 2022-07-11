@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="create-news">
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
@@ -69,6 +69,9 @@ export default {
 }
 </script>
 <style scoped>
+#create-news {
+  font-family: 'Roboto', sans-serif;
+}
 .input {
   max-width: 70%;
 }

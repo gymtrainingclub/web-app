@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="content">
     <NavbarView />
     <b-container class="p-5 m-5">
       <h2>
@@ -65,32 +65,29 @@
         </tbody>
       </table>
       <b-modal id="modal" title="Details Content" hide-footer>
-        <h2>{{ selectedItem.title }}</h2>
-        <p>By {{ selectedItem.author }}</p>
-        <p>5 hour ago</p>
-        <div>
-          <b-img
-            class="detail-content"
-            rounded
-            center
-            src="@/assets/img/pict2.jpg"
-          ></b-img>
-        </div>
-        <p>
-          {{ selectedItem.desc }}
-        </p>
-        <div class="d-flex justify-content-end">
-          <b-button
-            v-b-modal.delete
-            class="mr-2 pr-4 pl-4"
-            variant="outline-secondary"
-            >Delete</b-button
-          >
-          <!-- <NuxtLink to="/Dashboard/NewsAndContent/Content/edit-content">
-            <b-button class="pr-4 pl-4" style="background-color: #0c303d"
-              >Edit</b-button
+        <div id="content">
+          <h2>{{ selectedItem.title }}</h2>
+          <p>By {{ selectedItem.author }}</p>
+          <p>5 hour ago</p>
+          <div>
+            <b-img
+              class="detail-content p-4"
+              rounded
+              center
+              src="@/assets/img/pict2.jpg"
+            ></b-img>
+          </div>
+          <p>
+            {{ selectedItem.desc }}
+          </p>
+          <div class="d-flex justify-content-end">
+            <b-button
+              v-b-modal.delete
+              class="mr-2 pr-4 pl-4"
+              variant="outline-secondary"
+              >Delete</b-button
             >
-          </NuxtLink> -->
+          </div>
         </div>
       </b-modal>
       <b-modal id="delete" hide-header hide-footer>
@@ -157,6 +154,9 @@ export default {
 }
 </script>
 <style scoped>
+#content {
+  font-family: 'Roboto', sans-serif;
+}
 a {
   color: black;
   text-decoration: none;

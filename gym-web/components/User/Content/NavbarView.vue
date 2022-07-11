@@ -38,26 +38,26 @@
 
 <script>
 export default {
-	name: 'NavbarView',
-	data() {
-		return {
-			show: false,
-		}
-	},
-	methods: {
-		toggleNavbar() {
-			this.show = !this.show
-		},
-	},
+  name: 'NavbarView',
+  data() {
+    return {
+      show: false,
+    }
+  },
+  methods: {
+    toggleNavbar() {
+      this.show = !this.show
+    },
+  },
 }
 </script>
 
 <style scoped>
 .btn-custom {
-	background: #006784;
-	color: white;
+  background: #006784;
+  color: white;
 }
 .bg-custom {
-	background: #0c303d;
+  background: #0c303d;
 }
 </style>

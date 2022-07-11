@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="membership-data">
     <NavbarView />
     <b-container class="p-5 m-5">
       <h2>
@@ -143,6 +143,9 @@ export default {
 }
 </script>
 <style scoped>
+#membership-data {
+  font-family: 'Roboto', sans-serif;
+}
 .btn-search {
   width: 113px;
   color: #0c303d;

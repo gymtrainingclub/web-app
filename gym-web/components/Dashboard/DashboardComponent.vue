@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div id="dashboard">
     <navbar-view />
     <b-container class="p-5 mt-5">
       <h3>Hello, Super Admin !</h3>
       <b-card-group class="text-center" deck>
-        <div v-for="(card, index) in cards" :key="index" class="card rounded-4">
+        <div v-for="(card, index) in cards" :key="index" class="card mb-3">
           <div class="card-header">
             <h5>{{ card.name }} <b-icon :icon="card.icon"></b-icon></h5>
           </div>
@@ -13,29 +13,37 @@
           </div>
         </div>
       </b-card-group>
-      <div class="card mt-2">
+      <div class="card">
         <div class="card-header">
           <h5>Trainer Status</h5>
         </div>
         <div class="card-body">
           <b-row class="d-flex justify-content-around align-items-center mb-3">
-            <b-col cols="1"><b-icon icon="aspect-ratio"></b-icon></b-col>
-            <b-col><b-form-input placeholder="Name"></b-form-input></b-col>
-            <b-col><b-form-input placeholder="Class"></b-form-input></b-col>
-            <b-col
+            <b-col cols="12" md="2"
+              ><b-icon icon="aspect-ratio"></b-icon
+            ></b-col>
+            <b-col cols="12" md="2" class="mb-2"
+              ><b-form-input placeholder="Name"></b-form-input
+            ></b-col>
+            <b-col cols="12" md="2" class="mb-2"
+              ><b-form-input placeholder="Class"></b-form-input
+            ></b-col>
+            <b-col cols="12" md="2" class="mb-2"
               ><b-form-select
                 :options="options"
                 placeholder="Enter your name"
               ></b-form-select
             ></b-col>
-            <b-col
+            <b-col cols="12" md="2" class="mb-2"
               ><b-form-input placeholder="No Handphone"></b-form-input
             ></b-col>
-            <b-col><b-button style="background: #0c303d">Save</b-button></b-col>
+            <b-col cols="12" md="2" class="mb-2"
+              ><b-button style="background: #0c303d">Save</b-button></b-col
+            >
           </b-row>
           <table class="table table-borderless table-responsive">
             <thead>
-              <tr class="table-secondary">
+              <tr>
                 <th scope="col"></th>
                 <th scope="col">Nama Trainer</th>
                 <th scope="col">Class</th>
@@ -110,8 +118,12 @@ export default {
 }
 </script>
 <style scoped>
+.card {
+  border-radius: 6px;
+}
 .card-header {
   background: #0c303d;
   color: white;
+  border-radius: 6px 6px 0 0;
 }
 </style>

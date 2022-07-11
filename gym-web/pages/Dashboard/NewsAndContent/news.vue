@@ -14,17 +14,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-a {
-  color: black;
-  text-decoration: none;
-}
-.btn-search {
-  width: 113px;
-  color: #0c303d;
-  background-color: #f15a24;
-}
-.search {
-  width: 600px;
-}
-</style>

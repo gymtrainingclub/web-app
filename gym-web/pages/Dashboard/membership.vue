@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="membership">
     <NavbarView />
     <b-container class="pt-5 mt-5 members">
       <b-card-group deck>
@@ -130,6 +130,9 @@ export default {
 }
 </script>
 <style scoped>
+#membership {
+  font-family: 'Roboto', sans-serif;
+}
 .card-header,
 .card-footer {
   background: #0c303d;

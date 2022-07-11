@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="profile">
     <NavbarView />
     <b-container class="p-5 mt-5">
       <h2>Profile</h2>
@@ -69,3 +69,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+#profile {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

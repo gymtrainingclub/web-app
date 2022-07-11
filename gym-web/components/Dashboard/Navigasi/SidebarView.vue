@@ -28,18 +28,18 @@
       </div>
     </b-sidebar>
     <b-modal id="logout" hide-footer hide-header>
-      <div class="text-center m-5">
+      <div id="logout" class="text-center m-5">
         <h2>Log Out</h2>
         <p>Are you sure want to Log out?</p>
         <div class="d-flex justify-content-around">
           <b-button
             variant="outline-secondary"
-            class="cancel"
+            class="cancel shadow"
             @click="$bvModal.hide('logout')"
             >Cancel</b-button
           >
           <NuxtLink to="/Dashboard/Auth/login">
-            <b-button style="background: #0c303d" class="ps-5 pe-5"
+            <b-button style="background: #0c303d" class="ps-5 pe-5 shadow"
               >Yes</b-button
             >
           </NuxtLink>
@@ -93,6 +93,9 @@ export default {
 </script>
 
 <style scoped>
+#logout {
+  font-family: 'Roboto', sans-serif;
+}
 .sidebar-btn {
   background-color: #0c303d;
 }
