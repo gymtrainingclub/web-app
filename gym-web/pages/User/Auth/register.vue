@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="register">
     <RegisterView />
   </div>
 </template>
@@ -11,3 +11,8 @@ export default {
   components: { RegisterView },
 }
 </script>
+<style scoped>
+#register {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

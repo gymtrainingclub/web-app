@@ -3,7 +3,7 @@
     <div class="card shadow-lg border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
-          <NuxtLink to="/auth/login">
+          <NuxtLink to="/user/auth/login">
             <img
               src="@/assets/img/logo-transparan.png"
               alt="Logo"
@@ -148,7 +148,7 @@ export default {
         })
         .then((res) => {
           console.log(res)
-          this.$router.push('/auth/login')
+          this.$router.push('/user/auth/login')
         })
         .catch((err) => {
           console.log(err)
