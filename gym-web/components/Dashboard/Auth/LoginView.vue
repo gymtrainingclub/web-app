@@ -1,5 +1,5 @@
 <template>
-  <div class="box-center col-lg-7">
+  <div id="login" class="box-center col-lg-7">
     <div class="card border-0 rounded">
       <div class="card-body">
         <div class="d-flex justify-content-center">
@@ -84,6 +84,9 @@ export default {
 </script>
 
 <style scoped>
+#login {
+  font-family: 'Roboto', sans-serif;
+}
 button {
   width: 30%;
 }

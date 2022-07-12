@@ -19,9 +19,6 @@
         </div>
         <div class="card-body">
           <b-row class="d-flex justify-content-around align-items-center mb-3">
-            <b-col cols="12" md="2"
-              ><b-icon icon="aspect-ratio"></b-icon
-            ></b-col>
             <b-col cols="12" md="2" class="mb-2"
               ><b-form-input placeholder="Name"></b-form-input
             ></b-col>
@@ -41,37 +38,46 @@
               ><b-button style="background: #0c303d">Save</b-button></b-col
             >
           </b-row>
-          <table class="table table-borderless table-responsive">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">Nama Trainer</th>
-                <th scope="col">Class</th>
-                <th scope="col">Type Class</th>
-                <th scope="col">No Handphone</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(trainer, index) in clas" :key="index">
-                <td><b-icon icon="aspect-ratio"></b-icon></td>
-                <td>{{ trainer.instructor.name }}</td>
-                <td>{{ trainer.name }}</td>
-                <td>{{ trainer.type }}</td>
-                <td>{{ trainer.instructor.handphone }}</td>
-                <td>
-                  <b-button-group size="sm">
-                    <b-button class="pr-3 pl-3" variant="success"
-                      >Active</b-button
-                    >
-                    <b-button class="pr-3 pl-3" variant="secondary lighten"
-                      >Hiatus</b-button
-                    >
-                  </b-button-group>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <b-row>
+            <b-col cols="12">
+              <table class="table table-borderless text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Trainer</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Type Class</th>
+                    <th scope="col">No Handphone</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(trainer, index) in clas" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ trainer.instructor.name }}</td>
+                    <td>{{ trainer.name }}</td>
+                    <td>{{ trainer.type }}</td>
+                    <td>{{ trainer.instructor.handphone }}</td>
+                    <td>
+                      <b-button-group size="sm">
+                        <b-button class="pr-3 pl-3" variant="success"
+                          >Active</b-button
+                        >
+                        <b-button class="pr-3 pl-3" variant="secondary lighten"
+                          >Hiatus</b-button
+                        >
+                      </b-button-group>
+                    </td>
+                    <td><b-icon v-b-modal.delete icon="trash"></b-icon></td>
+                  </tr>
+                </tbody>
+              </table>
+            </b-col>
+          </b-row>
+          <b-modal id="delete" hide-footer hide-header>
+            <DeleteComponent :title="title" />
+          </b-modal>
         </div>
       </div>
     </b-container>
@@ -79,18 +85,22 @@
 </template>
 <script>
 import NavbarView from '~/components/Dashboard/Navigasi/NavbarView.vue'
+import DeleteComponent from '~/components/Dashboard/DeleteComponent.vue'
 export default {
   name: 'DashboardComponent',
   components: {
     NavbarView,
+    DeleteComponent,
   },
   data() {
     return {
       options: ['Online', 'Offline'],
+      index: 0,
+      title: 'Trainer',
       cards: [
         { icon: 'person-square', name: 'Admin', value: 4 },
         { icon: 'people-fill', name: 'Membership', value: 40 },
-        { icon: 'layout-text-window', name: 'Class', value: 5 },
+        { icon: 'grid-fill', name: 'Class', value: 5 },
         // { icon: 'journal-bookmark-fill', name: 'Booking', value: 23 },
       ],
       buttons: [

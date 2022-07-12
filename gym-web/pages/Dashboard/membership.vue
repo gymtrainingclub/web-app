@@ -138,6 +138,16 @@ export default {
   background: #0c303d;
   color: white;
 }
+.card-footer {
+  border-radius: 0 0 6px 6px;
+}
+.card-header {
+  border-radius: 6px 6px 0 0;
+}
+
+.card {
+  border-radius: 6px;
+}
 a {
   text-decoration: none;
   color: white;

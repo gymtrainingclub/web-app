@@ -1,10 +1,10 @@
 <template>
-	<div>
-		<NavbarView />
-		<HeaderView />
-		<DownloadView />
-		<FooterView />
-	</div>
+  <div id="landing-page">
+    <NavbarView />
+    <HeaderView />
+    <DownloadView />
+    <FooterView />
+  </div>
 </template>
 
 <script>
@@ -14,7 +14,12 @@ import HeaderView from '@/components/User/Content/HeaderView.vue'
 import DownloadView from '@/components/User/Content/DownloadView.vue'
 
 export default {
-	name: 'LandingPage',
-	components: { NavbarView, FooterView, HeaderView, DownloadView },
+  name: 'LandingPage',
+  components: { NavbarView, FooterView, HeaderView, DownloadView },
 }
 </script>
+<style scoped>
+#landing-page {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

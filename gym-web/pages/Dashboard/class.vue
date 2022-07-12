@@ -6,7 +6,7 @@
         <div class="card" style="max-width: 17rem">
           <div class="card-body">
             <h3>
-              <b-icon style="color: #0c303d" icon="camera-video"> </b-icon>
+              <b-icon style="color: #0c303d" icon="wifi"> </b-icon>
               Online Class
             </h3>
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="login">
     <LoginView />
   </div>
 </template>
@@ -11,3 +11,8 @@ export default {
   components: { LoginView },
 }
 </script>
+<style scoped>
+#login {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

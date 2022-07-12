@@ -74,7 +74,7 @@ export default {
         {
           title: 'Class Gym',
           to: '/Dashboard/class',
-          icon: 'collection',
+          icon: 'grid-fill',
         },
         {
           title: 'Class Booking',
