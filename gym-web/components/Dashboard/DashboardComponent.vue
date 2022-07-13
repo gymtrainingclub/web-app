@@ -61,12 +61,10 @@
                     <td>{{ trainer.instructor.handphone }}</td>
                     <td>
                       <b-button-group size="sm">
-                        <b-button class="pr-3 pl-3" variant="success"
-                          >Active</b-button
-                        >
-                        <b-button class="pr-3 pl-3" variant="secondary lighten"
-                          >Hiatus</b-button
-                        >
+                        <button type="button" class="btn pr-3 pl-3 btn-active">
+                          Active
+                        </button>
+                        <button class="btn pr-3 pl-3 btn-hiatus">Hiatus</button>
                       </b-button-group>
                     </td>
                     <td><b-icon v-b-modal.delete icon="trash"></b-icon></td>
@@ -96,6 +94,7 @@ export default {
     return {
       options: ['Online', 'Offline'],
       index: 0,
+      active: true,
       title: 'Trainer',
       cards: [
         { icon: 'person-square', name: 'Admin', value: 4 },
@@ -135,5 +134,17 @@ export default {
   background: #0c303d;
   color: white;
   border-radius: 6px 6px 0 0;
+}
+.btn-active,
+.btn-hiatus {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+.btn-active {
+  background: #4ab44f;
+}
+.btn-hiatus {
+  background: #79747e;
 }
 </style>

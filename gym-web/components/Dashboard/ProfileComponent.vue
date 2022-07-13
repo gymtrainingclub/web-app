@@ -17,28 +17,41 @@
           <b-form>
             <b-form-group>
               <label><strong> ID Admin </strong></label>
-              <b-form-input :value="profiles.id" disabled></b-form-input>
+              <b-form-input
+                class="input"
+                :value="profiles.id"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Nama </strong></label>
-              <b-form-input :value="profiles.name" disabled></b-form-input>
+              <b-form-input
+                class="input"
+                :value="profiles.name"
+                disabled
+              ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Email </strong></label>
               <b-form-input
                 type="email"
+                class="input"
                 :value="profiles.email"
                 disabled
               ></b-form-input>
             </b-form-group>
             <b-form-group>
               <label><strong> Password </strong></label>
-              <b-form-input type="password" disabled> </b-form-input>
+              <b-form-input class="input" type="password" disabled>
+              </b-form-input>
               <!-- <b-icon icon="eye-slash-fill"></b-icon> -->
             </b-form-group>
             <div class="d-flex justify-content-end">
-              <b-button style="background: #0c303d; width: 100px">
-                Save
+              <b-button
+                class="input-btn"
+                style="background: #0c303d; width: 100px"
+              >
+                Change
               </b-button>
             </div>
           </b-form>
@@ -72,5 +85,12 @@ export default {
 <style scoped>
 #profile {
   font-family: 'Roboto', sans-serif;
+}
+.input,
+.input-btn {
+  border-radius: 8px;
+}
+.input-btn {
+  padding: 6px 16px 6px 16px;
 }
 </style>

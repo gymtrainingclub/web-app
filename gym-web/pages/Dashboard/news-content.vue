@@ -19,7 +19,7 @@
         <div class="card" style="max-width: 17rem">
           <div class="card-body">
             <h3>
-              <b-icon style="color: #0c303d" icon="person-lines-fill"> </b-icon>
+              <b-icon style="color: #0c303d" icon="play-btn-fill"> </b-icon>
               Content
             </h3>
           </div>

@@ -1,27 +1,31 @@
 <template>
-  <div style="background: #0c303d">
+  <div>
     <b-sidebar
       id="sidebar-backdrop"
       aria-labelledby="sidebar-no-header-title"
+      no-header-close
       backdrop
       shadow
     >
       <div class="pr-3 pl-3">
         <div id="sidebar-no-header-title" class="d-flex justify-content-center">
-          <b-img class="image" src="@/assets/img/logo.png"></b-img>
+          <b-img class="image" src="@/assets/img/logo-transparan.png"></b-img>
         </div>
         <div v-for="(link, index) in routes" :key="index">
-          <NuxtLink :to="link.to" active-class="active">
-            <b-button class="sidebar-btn mt-3" block>
+          <NuxtLink exact-active-class="active" :to="link.to">
+            <button
+              type="button"
+              class="btn btn-dark btn-block sidebar-btn mt-3 text-left"
+            >
               <b-icon :icon="link.icon"></b-icon>
               {{ link.title }}
-            </b-button>
+            </button>
           </NuxtLink>
         </div>
         <button
           type="button"
           v-b-modal.logout
-          class="btn btn-dark btn-block sidebar-btn mt-5"
+          class="btn btn-dark btn-block sidebar-btn mt-5 text-left"
         >
           <b-icon icon="box-arrow-right"></b-icon> Log Out
         </button>
@@ -84,7 +88,7 @@ export default {
         {
           title: 'News & Content',
           to: '/Dashboard/news-content',
-          icon: 'newspaper',
+          icon: 'grid-1x2-fill',
         },
       ],
     }
@@ -98,19 +102,18 @@ export default {
 }
 .sidebar-btn {
   background-color: #0c303d;
+  font-size: 20px;
+  border-radius: 8px;
 }
 a {
   text-decoration: none;
 }
-#sidebar-backdrop {
-  background-color: #0c303d;
-}
+
 .sidebar-btn:hover {
   background: #f15a24;
 }
 .image {
-  max-width: 25%;
-  justify-content: center;
+  max-width: 30%;
 }
 .cancel:hover {
   background: #f15a24;
