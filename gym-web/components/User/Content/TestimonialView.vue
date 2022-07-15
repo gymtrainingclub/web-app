@@ -1,11 +1,11 @@
 <template>
-	<div class="container-fluid p-5">
+	<div class="container-fluid">
 		<h4 class="text-center mb-5">
 			Saatnya Sehat dengan seluruh member Capstone GYM di seluruh Indonesia
 		</h4>
-		<div class="col-lg-12 row">
+		<div class="col-lg-12 row mx-auto">
 			<div class="col-lg-3" v-for="item in 4">
-				<div class="card rounded mx-auto mb-3 p-3" style="width: 18rem">
+				<div class="card rounded mb-3 p-3" style="width: 18rem">
 					<img
 						class="card-img-top"
 						src="@/assets/img/Header.png"
@@ -25,6 +25,6 @@
 </template>
 <script>
 export default {
-	name: 'Testimonial View',
+	name: 'TestimonialView',
 }
 </script>
