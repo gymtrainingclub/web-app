@@ -40,7 +40,9 @@
           </b-row>
           <b-row>
             <b-col cols="12">
-              <table class="table table-borderless text-center">
+              <table
+                class="table table-borderless text-center table-responsive"
+              >
                 <thead>
                   <tr>
                     <th scope="col">No</th>
