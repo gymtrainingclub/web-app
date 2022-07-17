@@ -6,6 +6,7 @@ const {
 	getAdmin,
 	addAdmin,
 	deleteAdmin,
+	getAllAdmin,
 } = require("./handler");
 
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
 		method: "GET",
 		path: "/api/v1/admin/delete",
 		handler: deleteAdmin,
+	},
+	{
+		method: "GET",
+		path: "/api/v1/admins",
+		handler: getAllAdmin,
 	},
 ];
 
