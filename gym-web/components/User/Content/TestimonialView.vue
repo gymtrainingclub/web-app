@@ -30,7 +30,7 @@ export default {
 	},
 	mounted() {
 		this.$axios
-			.get('https://project-app-forum.herokuapp.com/api/v1/testimonial')
+			.get('https://capstone-gym-project.herokuapp.com/api/v1/testimonial')
 			.then((result) => {
 				this.items = result.data.data.testimonial
 			})
