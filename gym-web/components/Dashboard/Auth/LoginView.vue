@@ -68,12 +68,13 @@ export default {
   methods: {
     handleLogin() {
       this.$axios
-        .post('https://project-app-forum.herokuapp.com/api/v1/admin/login', {
+        .post('https://capstone-gym-project.herokuapp.com/api/v1/admin/login', {
           email: this.email,
           password: this.password,
         })
         .then((result) => {
-          localStorage.setItem('tokenID', result.data.token)
+          localStorage.setItem('token', result.data.token)
+          localStorage.setItem('data', JSON.stringify(result.data.data[0]))
           this.$router.push('/dashboard')
         })
         .catch((err) => {
