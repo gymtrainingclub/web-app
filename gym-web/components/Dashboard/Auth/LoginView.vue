@@ -26,6 +26,7 @@
               v-model="password"
             />
           </div>
+          <p class="text-danger">{{ error }}</p>
           <div class="text-right">
             <NuxtLink to="/user/auth/forgot-password" class="forgot-password">
               Forgot Password ?
@@ -61,23 +62,24 @@ export default {
     return {
       email: '',
       password: '',
+      error: '',
     }
   },
   methods: {
     handleLogin() {
       this.$axios
-        .post('/login', {
+        .post('https://project-app-forum.herokuapp.com/api/v1/admin/login', {
           email: this.email,
           password: this.password,
         })
-        .then((res) => {
-          if (res.data.status === 'success') {
-            console.log(res)
-            localStorage.setItem('token', res.data.data.token)
-            this.$router.push('/dashboard')
-          }
+        .then((result) => {
+          localStorage.setItem('tokenID', result.data.token)
+          this.$router.push('/dashboard')
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err.response.data.message)
+          this.error = err.response.data.message
+        })
     },
   },
 }
