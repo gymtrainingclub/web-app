@@ -119,7 +119,6 @@ const deleteAdmin = async (request, h) => {
 };
 
 module.exports = {
-	checkFilterProfanity,
 	// GYM Capstone
 	getTestimonial,
 	loginAdmin,
