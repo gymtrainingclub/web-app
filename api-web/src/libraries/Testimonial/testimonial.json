@@ -1,0 +1,29 @@
+{
+	"testimonial": [
+		{
+			"id": 1,
+			"name": "Jhonson",
+			"desc": "Fiturnya keren dan mudah digunakan, cocok untuk saya yang ingin menjalani hidup sehat"
+		},
+		{
+			"id": 2,
+			"name": "Borris",
+			"desc": "Aplikasi mudah digunakan, keren dan cocok untuk kalangan apapun baik remaja atau dewasa yang ingin melakukan latihan"
+		},
+		{
+			"id": 3,
+			"name": "Christie",
+			"desc": "Dengan aplikasi ini saya merasakan perubahan yang drastis dalam hidup saya"
+		},
+		{
+			"id": 4,
+			"name": "Raul",
+			"desc": "Saya tidak menyangka bahwasanya ada sebuah aplikasi yang berguna seperti ini, saya ingin mengucapkan terima kasih kepada developer"
+		},
+		{
+			"id": 5,
+			"name": "Eric",
+			"desc": "Keren tidak menyangka ada sebuah aplikasi yang seperti ini, saya jadi lebih mudah untuk melakukan latihan"
+		}
+	]
+}
