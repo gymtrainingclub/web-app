@@ -121,6 +121,7 @@ export default {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       title: 'Class',
+      search: '',
       id: null,
       selectedItem: {},
       onlineClass: [],
