@@ -123,10 +123,10 @@ export default {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       title: 'Class',
-      newName: '',
       id: null,
       selectedItem: [],
       onlineClass: [],
+      newName: '',
     }
   },
   computed: {
