@@ -6,7 +6,7 @@
 <script>
 import NewOnlineClassComponent from '~/components/Dashboard/Class/NewOnlineClassComponent.vue'
 export default {
-  name: 'NewClass',
+  name: 'NewOnlineClass',
   components: {
     NewOnlineClassComponent,
   },
