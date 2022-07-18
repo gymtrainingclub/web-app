@@ -41,8 +41,13 @@ export default {
   },
   mounted() {
     const data = JSON.parse(localStorage.getItem('data'))
-    console.log(data)
+    if (data == null) {
+      localStorage.clear()
+      this.$router.push('/dashboard/auth/login')
+      return false
+    }
     this.name = data.name != undefined ? data.name : data.email
+    console.log(data)
   },
 }
 </script>
