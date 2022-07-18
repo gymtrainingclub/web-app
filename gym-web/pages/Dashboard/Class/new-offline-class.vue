@@ -6,7 +6,7 @@
 <script>
 import NewOfflineClassComponent from '~/components/Dashboard/Class/NewOfflineClassComponent.vue'
 export default {
-  name: 'NewClass',
+  name: 'NewOfflineClass',
   components: {
     NewOfflineClassComponent,
   },
