@@ -65,7 +65,7 @@
           <b-form-group class="input">
             <label><strong>Class Name</strong></label>
             <b-form-input
-              :value="selectedItem.name"
+              v-model="selectedItem.name"
               type="text"
               trim
             ></b-form-input>
@@ -73,20 +73,20 @@
           <b-form-group class="input">
             <label><strong>Trainer</strong></label>
             <b-form-input
-              :value="selectedItem.trainer"
+              v-model="selectedItem.trainer"
               type="text"
               trim
             ></b-form-input>
           </b-form-group>
           <b-form-group class="input">
             <label><strong>Date</strong></label>
-            <b-form-input :value="selectedItem.date" type="text" trim>
+            <b-form-input v-model="selectedItem.date" type="date" trim>
             </b-form-input>
           </b-form-group>
           <b-form-group class="input">
             <label><strong>Time</strong></label>
             <b-form-input
-              :value="selectedItem.time"
+              v-model="selectedItem.time"
               type="text"
               trim
             ></b-form-input>
@@ -94,12 +94,14 @@
           <b-form-group class="input">
             <label><strong>Link/Location</strong></label>
             <b-form-input
-              :value="selectedItem.url"
+              v-model="selectedItem.url"
               type="text"
               trim
             ></b-form-input>
           </b-form-group>
-          <b-button style="background: #0c303d">Save</b-button>
+          <b-button @click="update()" style="background: #0c303d"
+            >Save</b-button
+          >
         </b-modal>
         <b-modal id="delete" hide-header hide-footer>
           <DeleteComponent :title="title" />
@@ -123,8 +125,9 @@ export default {
       title: 'Class',
       search: '',
       id: null,
-      selectedItem: {},
+      selectedItem: [],
       onlineClass: [],
+      newName: '',
     }
   },
   computed: {
@@ -149,6 +152,14 @@ export default {
     showModal(item) {
       this.selectedItem = item
       this.$root.$emit('bv::show::modal', 'modal-1')
+    },
+    update() {
+      const result = this.filteredClass.filter(
+        (selectedItem) => selectedItem.id === this.id
+      )
+      result.map((res) => (res.name = this.newName))
+      localStorage.setItem('onlineClass', JSON.stringify(this.onlineClass))
+      this.$root.$emit('bv::hide::modal', 'modal-1')
     },
   },
 }
