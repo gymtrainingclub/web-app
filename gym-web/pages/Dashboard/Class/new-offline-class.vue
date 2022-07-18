@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import NewOfflineClassComponent from '~/components/Dashboard/Class/NewOfflineClassComponent.vue'
+import NewOfflineClassComponent from '~/components/Dashboard/Class/NewOfflineclassComponent.vue'
 export default {
   name: 'NewClass',
   components: {
