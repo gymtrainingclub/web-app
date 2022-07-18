@@ -29,10 +29,12 @@
         </b-form-group>
         <b-form-group disabled class="input-select">
           <label><strong> Category</strong></label>
-          <b-form-input
+          <b-form-select
+            type="select"
+            :value="options"
             v-model="category"
-            placeholder="Offline Class"
-          ></b-form-input>
+            :options="options"
+          ></b-form-select>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Date</strong></label>
@@ -78,12 +80,16 @@ export default {
   data() {
     return {
       index: 1,
-      category: 'Offline class',
       name: '',
       date: '',
       time: '',
       place: '',
       offlineClass: [],
+      category: '',
+      options: [
+        { value: 'Online Class', text: 'Online Class', disabled: true },
+        { value: 'Offline Class', text: 'Offline Class' },
+      ],
     }
   },
   methods: {

@@ -7,7 +7,7 @@
         <b-form-group class="input">
           <label><strong>Newsletter Title</strong></label>
           <b-form-input
-            :value="this.$route.params.id.title"
+            v-model="this.$router.params.title"
             type="text"
             placeholder="Title"
             trim
@@ -17,7 +17,8 @@
           <b-form-group class="input-select mr-4">
             <label><strong>Choose Category</strong></label>
             <b-form-select
-              :value="this.$route.params.id.category"
+              v-model="this.$route.params.id.category"
+              :value="options"
               :options="options"
             ></b-form-select>
           </b-form-group>
@@ -26,14 +27,14 @@
             <b-form-file
               id="file-default"
               ref="file-input"
-              :value="file"
+              v-model="file"
             ></b-form-file>
           </b-form-group>
         </div>
         <b-form-group class="input">
           <label><strong> Author</strong></label>
           <b-form-input
-            :value="this.$route.params.id.author"
+            v-model="this.$route.params.id.author"
             type="text"
             placeholder="Author"
             trim
@@ -43,7 +44,7 @@
           <label><strong>Description</strong></label>
           <b-form-textarea
             id="textarea-default"
-            :value="this.$route.params.id.desc"
+            v-model="this.$route.params.id.desc"
             placeholder="Description"
           ></b-form-textarea>
         </b-form-group>
@@ -66,18 +67,13 @@ export default {
     return {
       id: null,
       selected: 'Tips Workout',
-      newTitle: '',
-      newAuthor: '',
-      newCategory: '',
-      newDesc: '',
       file: null,
       options: [
-        { text: 'Lifestyle' },
-        { text: 'Gym News' },
-        { text: 'Tips Workout' },
-        { text: 'Diet' },
+        { value: 'Lifestyle', text: 'Lifestyle' },
+        { value: 'Gym News', text: 'Gym News' },
+        { value: 'Tips Workout', text: 'Tips Workout' },
+        { value: 'Diet', text: 'Diet' },
       ],
-      newsletter: [this.$route.params.id],
     }
   },
 }
