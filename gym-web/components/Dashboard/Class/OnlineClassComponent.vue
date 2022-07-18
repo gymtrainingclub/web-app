@@ -17,6 +17,7 @@
         <b-nav-form class="mt-2">
           <b-form-input
             size="lg"
+            v-model="search"
             class="mr-2 search"
             placeholder="Search"
           ></b-form-input>
@@ -35,23 +36,23 @@
               <th scope="col">Time</th>
               <th scope="col">Trainer</th>
               <th scope="col">
-                <NuxtLink to="/Dashboard/Class/new-class">
+                <NuxtLink to="/Dashboard/Class/new-online-class">
                   <b-icon class="h2" icon="plus-circle"></b-icon>
                 </NuxtLink>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in items" :key="index">
+            <tr v-for="(online, index) in filteredClass" :key="index">
               <th scope="row"><input type="checkbox" /></th>
-              <td>{{ item.class }}</td>
-              <td>{{ item.link }}</td>
-              <td>{{ item.date }}</td>
-              <td>{{ item.time }}</td>
-              <td>{{ item.trainer }}</td>
+              <td>{{ online.name }}</td>
+              <td>{{ online.url }}</td>
+              <td>{{ online.date }}</td>
+              <td>{{ online.time }}</td>
+              <td>{{ online.trainer }}</td>
               <td>
                 <b-icon
-                  @click="showModal(item)"
+                  @click="showModal(online)"
                   class="mr-1"
                   icon="pencil-square"
                 ></b-icon>
@@ -64,7 +65,7 @@
           <b-form-group class="input">
             <label><strong>Class Name</strong></label>
             <b-form-input
-              v-model="selectedItem.class"
+              :value="selectedItem.name"
               type="text"
               trim
             ></b-form-input>
@@ -72,20 +73,20 @@
           <b-form-group class="input">
             <label><strong>Trainer</strong></label>
             <b-form-input
-              v-model="selectedItem.trainer"
+              :value="selectedItem.trainer"
               type="text"
               trim
             ></b-form-input>
           </b-form-group>
           <b-form-group class="input">
             <label><strong>Date</strong></label>
-            <b-form-input v-model="selectedItem.date" type="text" trim>
+            <b-form-input :value="selectedItem.date" type="text" trim>
             </b-form-input>
           </b-form-group>
           <b-form-group class="input">
             <label><strong>Time</strong></label>
             <b-form-input
-              v-model="selectedItem.time"
+              :value="selectedItem.time"
               type="text"
               trim
             ></b-form-input>
@@ -93,7 +94,7 @@
           <b-form-group class="input">
             <label><strong>Link/Location</strong></label>
             <b-form-input
-              v-model="selectedItem.link"
+              :value="selectedItem.url"
               type="text"
               trim
             ></b-form-input>
@@ -120,45 +121,28 @@ export default {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       title: 'Class',
+      id: null,
       selectedItem: {},
-      items: [
-        {
-          class: 'Fit Box',
-          link: 'https://meet.google.com/fdsjfhakj',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          link: 'https://meet.google.com/fdsjfhakj',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          link: 'https://meet.google.com/fdsjfhakj',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          link: 'https://meet.google.com/fdsjfhakj',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          link: 'https://meet.google.com/fdsjfhakj',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-      ],
+      onlineClass: [],
     }
+  },
+  computed: {
+    filteredClass() {
+      if (this.search) {
+        return this.onlineClass.filter((online) => {
+          return this.search
+            .toLowerCase()
+            .split(' ')
+            .every((query) => online.name.toLowerCase().includes(query))
+        })
+      } else {
+        return this.onlineClass
+      }
+    },
+  },
+  mounted() {
+    const onlineClass = localStorage.getItem('onlineClass')
+    this.onlineClass = onlineClass ? JSON.parse(onlineClass) : []
   },
   methods: {
     showModal(item) {

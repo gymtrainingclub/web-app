@@ -3,7 +3,7 @@
     <NavbarView />
     <div class="p-5 mt-5">
       <h3>
-        <NuxtLink to="/Dashboard/class">
+        <NuxtLink to="/Dashboard/class/offline-class">
           <b-icon icon="chevron-left"></b-icon>
         </NuxtLink>
         New Class
@@ -13,40 +13,56 @@
           <label><strong>Class Name</strong></label>
           <b-form-input
             type="text"
+            v-model="name"
             placeholder="Class Name"
             trim
           ></b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Trainer</strong></label>
-          <b-form-input type="text" placeholder="Trainer" trim></b-form-input>
+          <b-form-input
+            v-model="trainer"
+            type="text"
+            placeholder="Trainer"
+            trim
+          ></b-form-input>
         </b-form-group>
-        <b-form-group class="input-select">
-          <label><strong>Choose Category</strong></label>
-          <b-form-select v-model="selected" :options="options"></b-form-select>
+        <b-form-group disabled class="input-select">
+          <label><strong> Category</strong></label>
+          <b-form-input
+            v-model="category"
+            placeholder="Offline Class"
+          ></b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Date</strong></label>
-          <b-form-input type="text" placeholder="Example : 20 Mei 2022" trim>
+          <b-form-input
+            v-model="date"
+            type="text"
+            placeholder="Example : 20 Mei 2022"
+            trim
+          >
           </b-form-input>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Time</strong></label>
           <b-form-input
             type="text"
+            v-model="time"
             placeholder="Example : 09:00 sd 10:00"
             trim
           ></b-form-input>
         </b-form-group>
         <b-form-group class="input">
-          <label><strong>Link/Location</strong></label>
+          <label><strong>Place</strong></label>
           <b-form-input
             type="text"
-            placeholder="Link/Location"
+            v-model="place"
+            placeholder="Name Place"
             trim
           ></b-form-input>
         </b-form-group>
-        <b-button style="background: #0c303d">Save</b-button>
+        <b-button @click="add()" style="background: #0c303d">Save</b-button>
       </div>
     </div>
   </div>
@@ -61,9 +77,34 @@ export default {
   },
   data() {
     return {
-      selected: '',
-      options: [{ text: 'Online Class' }, { text: 'Offline Class' }],
+      index: 1,
+      category: 'Offline class',
+      name: '',
+      date: '',
+      time: '',
+      place: '',
+      offlineClass: [],
     }
+  },
+  methods: {
+    add() {
+      this.offlineClass.push({
+        id: this.index++,
+        name: this.name,
+        trainer: this.trainer,
+        category: this.category,
+        time: this.time,
+        place: this.place,
+        date: this.date,
+      })
+      this.name = ''
+      this.trainer = ''
+      this.category = ''
+      this.date = ''
+      this.time = ''
+      this.place = ''
+      localStorage.setItem('offlineClass', JSON.stringify(this.offlineClass))
+    },
   },
 }
 </script>

@@ -35,27 +35,27 @@
               <th scope="col">Time</th>
               <th scope="col">Trainer</th>
               <th scope="col">
-                <NuxtLink to="/Dashboard/Class/new-class">
+                <NuxtLink to="/Dashboard/Class/new-offline-class">
                   <b-icon class="h2" icon="plus-circle"></b-icon>
                 </NuxtLink>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in items" :key="index">
+            <tr v-for="(offline, index) in filteredClass" :key="index">
               <th scope="row"><input type="checkbox" /></th>
-              <td>{{ item.class }}</td>
-              <td>{{ item.location }}</td>
+              <td>{{ offline.name }}</td>
+              <td>{{ offline.place }}</td>
               <td>
-                {{ item.date }}
+                {{ offline.date }}
               </td>
               <td>
-                {{ item.time }}
+                {{ offline.time }}
               </td>
-              <td>{{ item.trainer }}</td>
+              <td>{{ offline.trainer }}</td>
               <td>
                 <b-icon
-                  @click="showModal(item)"
+                  @click="showModal(offline)"
                   class="mr-1"
                   icon="pencil-square"
                 ></b-icon>
@@ -68,7 +68,7 @@
           <b-form-group class="input">
             <label><strong>Class Name</strong></label>
             <b-form-input
-              v-model="selectedItem.class"
+              v-model="selectedItem.name"
               type="text"
               trim
             ></b-form-input>
@@ -95,9 +95,9 @@
             ></b-form-input>
           </b-form-group>
           <b-form-group class="input">
-            <label><strong>Link/Location</strong></label>
+            <label><strong>Place</strong></label>
             <b-form-input
-              v-model="selectedItem.location"
+              v-model="selectedItem.place"
               type="text"
               trim
             ></b-form-input>
@@ -125,44 +125,26 @@ export default {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       title: 'Class',
       selectedItem: {},
-      items: [
-        {
-          class: 'Fit Box',
-          location: 'CapstoneGym BSD/ Lantai 2',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          location: 'CapstoneGym BSD/ Lantai 2',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          location: 'CapstoneGym BSD/ Lantai 2',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          location: 'CapstoneGym BSD/ Lantai 2',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          location: 'CapstoneGym BSD/ Lantai 2',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          trainer: 'Mr.Lex',
-        },
-      ],
+      offlineClass: [],
     }
+  },
+  computed: {
+    filteredClass() {
+      if (this.search) {
+        return this.offlineClass.filter((online) => {
+          return this.search
+            .toLowerCase()
+            .split(' ')
+            .every((query) => online.name.toLowerCase().includes(query))
+        })
+      } else {
+        return this.offlineClass
+      }
+    },
+  },
+  mounted() {
+    const offlineClass = localStorage.getItem('offlineClass')
+    this.offlineClass = offlineClass ? JSON.parse(offlineClass) : []
   },
   methods: {
     showModal(item) {

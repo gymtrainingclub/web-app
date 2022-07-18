@@ -12,6 +12,7 @@
       <b-nav-form class="mt-4">
         <b-form-input
           size="lg"
+          v-model="search"
           class="mr-2 search"
           placeholder="Search"
         ></b-form-input>
@@ -24,6 +25,7 @@
           button
         }}</b-button>
       </b-button-group>
+      <!-- <b-table striped hover :items="newsletters" :fields="fields"></b-table> -->
       <table class="table table-borderless text-center">
         <thead>
           <tr>
@@ -42,46 +44,48 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(newsletter, index) in newsletters" :key="index">
+          <tr v-for="article in filteredArticle" :key="article.id">
             <th scope="row"><input type="checkbox" /></th>
-            <td>{{ newsletter.title }}</td>
-            <td>{{ newsletter.created_by }}</td>
-            <td>{{ newsletter.created_at }}</td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.author }}</td>
+            <td>{{ article.date }}</td>
             <td>
               <NuxtLink
                 :to="{
                   name: `Dashboard-NewsAndContent-News-id`,
-                  params: { id: index },
+                  params: { id: article },
                 }"
               >
                 <b-icon class="mr-1" icon="pencil-square"></b-icon>
               </NuxtLink>
             </td>
-            <td><b-icon v-b-modal.delete icon="trash"></b-icon></td>
-            <td @click="showModal(newsletter)">
+            <td>
+              <b-icon v-b-modal.delete icon="trash"></b-icon>
+            </td>
+            <td @click="showModal(article)">
               <i>See more</i>
               <b-icon class="mr-1" icon="box-arrow-up-right"></b-icon>
             </td>
           </tr>
         </tbody>
       </table>
-      <b-modal id="modal-1" title="Details News" hide-footer>
+      <b-modal id="modal-1" title="Details Newsletter" hide-footer>
         <div id="newsletter">
           <b-row>
-            <b-col cols="6">
+            <!-- <b-col cols="6">
               <b-img class="details" :src="selectedItem.image"></b-img>
-            </b-col>
+            </b-col> -->
             <b-col cols="6">
-              <h5>Tips Workout</h5>
+              <h5>{{ selectedItem.category }}</h5>
               <h6 class="text-capitalize">
                 {{ selectedItem.title }}
               </h6>
-              <p>by {{ selectedItem.created_by }}</p>
-              <p>{{ selectedItem.created_at }}</p>
+              <p>by {{ selectedItem.author }}</p>
+              <p>{{ selectedItem.date }}</p>
             </b-col>
           </b-row>
           <p>
-            {{ selectedItem.body }}
+            {{ selectedItem.desc }}
           </p>
 
           <div class="d-flex justify-content-end">
@@ -115,22 +119,36 @@ export default {
   data() {
     return {
       selectedItem: {},
+      search: '',
+      fields: ['Title', 'Author'],
       buttons: ['Lifestyle', 'Gym News', 'Tips Workout', 'Diet'],
       title: 'Article',
+      newsletter: [],
+      isEditing: false,
+      selectedArticle: null,
     }
   },
+
   computed: {
-    newsletters() {
-      return this.$store.state.newsletter
+    filteredArticle() {
+      if (this.search) {
+        return this.newsletter.filter((article) => {
+          return this.search
+            .toLowerCase()
+            .split(' ')
+            .every((query) => article.title.toLowerCase().includes(query))
+        })
+      } else {
+        return this.newsletter
+      }
     },
   },
   mounted() {
-    this.getNewsletter()
+    const newsletter = localStorage.getItem('newsletter')
+    this.newsletter = newsletter ? JSON.parse(newsletter) : []
   },
+
   methods: {
-    getNewsletter() {
-      this.$store.dispatch('getNewsletter')
-    },
     showModal(item) {
       this.selectedItem = item
       this.$root.$emit('bv::show::modal', 'modal-1')
