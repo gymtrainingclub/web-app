@@ -7,7 +7,7 @@
         <b-form-group class="input">
           <label><strong>Newsletter Title</strong></label>
           <b-form-input
-            v-model="this.$store.state.newsletter[$route.params.id].title"
+            :value="this.$route.params.id.title"
             type="text"
             placeholder="Title"
             trim
@@ -16,21 +16,24 @@
         <div class="d-flex justify-around">
           <b-form-group class="input-select mr-4">
             <label><strong>Choose Category</strong></label>
-            <b-form-select :options="options"></b-form-select>
+            <b-form-select
+              :value="this.$route.params.id.category"
+              :options="options"
+            ></b-form-select>
           </b-form-group>
-          <b-form-group class="input-select">
+          <b-form-group disabled class="input-select">
             <label><strong>Choose Pic</strong></label>
             <b-form-file
               id="file-default"
               ref="file-input"
-              v-model="file"
+              :value="file"
             ></b-form-file>
           </b-form-group>
         </div>
         <b-form-group class="input">
           <label><strong> Author</strong></label>
           <b-form-input
-            v-model="this.$store.state.newsletter[$route.params.id].created_by"
+            :value="this.$route.params.id.author"
             type="text"
             placeholder="Author"
             trim
@@ -40,11 +43,13 @@
           <label><strong>Description</strong></label>
           <b-form-textarea
             id="textarea-default"
-            v-model="this.$store.state.newsletter[$route.params.id].body"
+            :value="this.$route.params.id.desc"
             placeholder="Description"
           ></b-form-textarea>
         </b-form-group>
-        <b-button style="background: #0c303d">Save change</b-button>
+        <b-button @click="update()" style="background: #0c303d"
+          >Save change</b-button
+        >
       </div>
     </div>
   </div>
@@ -59,7 +64,12 @@ export default {
   },
   data() {
     return {
+      id: null,
       selected: 'Tips Workout',
+      newTitle: '',
+      newAuthor: '',
+      newCategory: '',
+      newDesc: '',
       file: null,
       options: [
         { text: 'Lifestyle' },
@@ -67,6 +77,7 @@ export default {
         { text: 'Tips Workout' },
         { text: 'Diet' },
       ],
+      newsletter: [this.$route.params.id],
     }
   },
 }
