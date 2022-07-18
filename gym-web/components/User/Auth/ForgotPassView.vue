@@ -23,6 +23,7 @@
 					</div>
 					<div class="d-flex justify-content-center mt-2">
 						<button
+							@click="handleForgot"
 							type="button"
 							class="btn btn-dark font-weight-bold shadow-lg"
 						>
@@ -44,8 +45,20 @@ export default {
 		}
 	},
 	methods: {
-		handleResetPass() {
-			console.log(this.email)
+		handleForgot() {
+			this.$axios
+				.post(
+					'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/forgot-password',
+					{
+						email: this.email,
+					}
+				)
+				.then((res) => {
+					this.$router.push('/user/auth/login')
+				})
+				.catch((err) => {
+					console.log(err)
+				})
 		},
 	},
 }

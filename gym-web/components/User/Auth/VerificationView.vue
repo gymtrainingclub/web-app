@@ -10,7 +10,11 @@
 				</p>
 				<a href="#" target="_blank">Open Email</a>
 				<div class="d-flex justify-content-center mt-3">
-					<button type="button" class="btn btn-dark font-weight-bold shadow-lg">
+					<button
+						type="button"
+						class="btn btn-dark font-weight-bold shadow-lg"
+						@click="handleVerification"
+					>
 						Resend Verification Email
 					</button>
 				</div>
@@ -22,6 +26,22 @@
 <script>
 export default {
 	name: 'VerificationView',
+	methods: {
+		handleVerification() {
+			const id = 'id' + Math.random().toString(16).slice(2)
+			console.log(id)
+			this.$axios
+				.get(
+					`https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/verify/${id}`
+				)
+				.then((result) => {
+					this.$router.push('/user/auth/login')
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+		},
+	},
 }
 </script>
 

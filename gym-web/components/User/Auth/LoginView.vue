@@ -64,15 +64,18 @@ export default {
   methods: {
     handleLogin() {
       this.$axios
-        .post('/login', {
-          email: this.email,
-          password: this.password,
-        })
+        .post(
+          'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/login',
+          {
+            email: this.email,
+            password: this.password,
+          }
+        )
         .then((res) => {
           if (res.data.status === 'success') {
             console.log(res)
             localStorage.setItem('token', res.data.data.token)
-            this.$router.push('/dashboard')
+            this.$router.push('/user/home')
           }
         })
         .catch((err) => console.log(err))
