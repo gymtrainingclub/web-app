@@ -45,14 +45,19 @@
               <td>{{ admin.name }}</td>
               <td>{{ admin.handphone }}</td>
               <td>{{ admin.password }}</td>
-              <td>{{ admin.created }}</td>
+              <td>{{ created }}</td>
               <td>
                 <b-icon
                   v-b-modal.modal-prevent-closing
                   icon="pencil-square"
                   class="mr-1"
+                  @click="showAdmin(admin.id)"
                 ></b-icon>
-                <b-icon v-b-modal.delete icon="trash"></b-icon>
+                <b-icon
+                  v-b-modal.delete
+                  icon="trash"
+                  @click="deleteAdmin(admin.id)"
+                ></b-icon>
               </td>
             </tr>
           </tbody>
@@ -87,17 +92,35 @@ export default {
     return {
       title: 'Admin',
       items: [],
+      created: '',
     }
   },
   mounted() {
+    var today = new Date()
+    var dd = String(today.getDate()).padStart(2, '0')
+    var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+    var yyyy = today.getFullYear()
+
+    today = mm + '/' + dd + '/' + yyyy
+    this.created = today
+
     this.$axios
       .get('https://capstone-gym-project.herokuapp.com/api/v1/admins')
       .then((result) => {
         this.items = result.data.user
+        console.log(result)
       })
       .catch((err) => {
         console.log(err)
       })
+  },
+  methods: {
+    deleteAdmin(id) {
+      localStorage.setItem('delete', id)
+    },
+    showAdmin(id) {
+      localStorage.setItem('update', id)
+    },
   },
 }
 </script>

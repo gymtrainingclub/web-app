@@ -42,14 +42,12 @@
             @click="$bvModal.hide('logout')"
             >Cancel</b-button
           >
-          <NuxtLink to="/Dashboard/Auth/login">
-            <b-button
-              style="background: #0c303d"
-              class="ps-5 pe-5 shadow"
-              @click="destroyStorage"
-              >Yes</b-button
-            >
-          </NuxtLink>
+          <b-button
+            style="background: #0c303d"
+            class="ps-5 pe-5 shadow"
+            @click="destroyStorage"
+            >Yes</b-button
+          >
         </div>
       </div>
     </b-modal>
@@ -99,6 +97,8 @@ export default {
   methods: {
     destroyStorage() {
       localStorage.clear()
+      this.$router.push('/dashboard/auth/login')
+      this.$bvModal.hide('logout')
     },
   },
 }
