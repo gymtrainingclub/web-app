@@ -4,7 +4,7 @@
       Saatnya Sehat dengan seluruh member Capstone GYM di seluruh Indonesia
     </h4>
     <div class="col-lg-12 row mx-auto">
-      <div class="col-lg-3" v-for="(item, index) in items" :key="index">
+      <div class="col-lg-3" v-for="item in items">
         <div class="card rounded mb-3 p-3" style="width: 18rem; height: 25rem">
           <img
             class="card-img-top"
