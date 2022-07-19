@@ -114,7 +114,7 @@ export default {
 					},
 				],
 			},
-			chartOptions: {
+			pieChartOptions: {
 				hoverBorderWidth: 20,
 			},
 		}

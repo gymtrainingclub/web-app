@@ -16,7 +16,7 @@
             <b-icon variant="white" class="h5 mt-2 mr-3" icon="bell-fill">
               <!-- icons -->
             </b-icon>
-            <span class="mr-3">Cleo Zhacky</span>
+            <span class="mr-3">{{ name }}</span>
             <b-avatar variant="info" src="https://placekitten.com/300/300">
               <!-- avatar -->
             </b-avatar>
@@ -33,6 +33,21 @@ export default {
   name: 'NavbarView',
   components: {
     SidebarView,
+  },
+  data() {
+    return {
+      name: '',
+    }
+  },
+  mounted() {
+    const data = JSON.parse(localStorage.getItem('data'))
+    if (data == null) {
+      localStorage.clear()
+      this.$router.push('/dashboard/auth/login')
+      return false
+    }
+    this.name = data.name != undefined ? data.name : data.email
+    console.log(data)
   },
 }
 </script>

@@ -17,11 +17,18 @@ const loginAdmin = async (request, h) => {
 		}
 	});
 
+	const data = user.filter((item) => {
+		if (item.email == email && item.password == password) {
+			return item;
+		}
+	});
+
 	if (result.includes(true)) {
 		return h
 			.response({
 				status: "success",
 				token: "admin-" + password + "_token",
+				data,
 			})
 			.code(200);
 	}
@@ -69,6 +76,13 @@ const getAdmin = async (request, h) => {
 	return h.response({
 		status: "success",
 		result,
+	});
+};
+
+const getAllAdmin = async (request, h) => {
+	return h.response({
+		status: "success",
+		user,
 	});
 };
 
@@ -126,4 +140,5 @@ module.exports = {
 	getAdmin,
 	addAdmin,
 	deleteAdmin,
+	getAllAdmin,
 };

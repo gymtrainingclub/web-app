@@ -32,7 +32,7 @@
           <b-form-input
             type="text"
             v-model="handphone"
-            placeholder="xxxxxxxxxx"
+            placeholder="628123456789"
             trim
           ></b-form-input>
         </b-form-group>
@@ -54,8 +54,11 @@
             trim
           ></b-form-input>
         </b-form-group>
+        <p class="text-danger">{{ error }}</p>
 
-        <b-button style="background: #0c303d">Save</b-button>
+        <b-button style="background: #0c303d" @click="addAdmin">
+          Save
+        </b-button>
       </div>
     </div>
   </div>
@@ -75,7 +78,44 @@ export default {
       handphone: '',
       password: '',
       confirm_pass: '',
+      created: '',
+      error: '',
     }
+  },
+  methods: {
+    addAdmin() {
+      const user = JSON.parse(localStorage.getItem('data'))
+      if (user.id != 1) {
+        this.error = "Sorry, You don't have an access"
+        return false
+      }
+
+      if (this.password != this.confirm_pass) {
+        this.error = "Password and confirm password didn't match"
+        return false
+      }
+
+      let data = {
+        name: this.name,
+        email: this.email,
+        handphone: this.handphone,
+        password: this.password,
+        created: this.created,
+      }
+
+      this.$axios
+        .post(
+          'https://capstone-gym-project.herokuapp.com/api/v1/admin/add',
+          data
+        )
+        .then((result) => {
+          console.log(result)
+          this.$router.push('/dashboard/admin')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
   },
 }
 </script>

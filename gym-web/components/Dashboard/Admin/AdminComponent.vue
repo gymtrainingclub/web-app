@@ -8,22 +8,25 @@
         </NuxtLink>
         Admin Capstone Gym Data
       </h3>
-      <div class="admin">
+      <div class="admin col-lg-12 container-fluid">
         <b-nav-form class="mt-5">
           <b-form-input
-            size="lg"
-            class="mr-2 search"
+            class="search mr-3"
             placeholder="Search"
+            size="lg"
           ></b-form-input>
-          <b-button size="lg" class="my-2 my-sm-0 btn-search" type="submit"
-            ><b-icon icon="search"></b-icon
+          <b-button
+            class="my-2 my-sm-0 btn-search shadow-lg"
+            size="lg"
+            type="submit"
+            ><b-icon icon="search" class="text-white"></b-icon
           ></b-button>
         </b-nav-form>
         <table class="table mt-5 table-borderless text-center">
           <thead>
             <tr>
               <th scope="col"><input type="checkbox" /></th>
-              <th scope="col">Id Admin</th>
+              <th scope="col">ID Admin</th>
               <th scope="col">Nama Admin</th>
               <th scope="col">No Handphone</th>
               <th scope="col">Password</th>
@@ -40,16 +43,21 @@
               <th scope="row"><input type="checkbox" /></th>
               <td>{{ admin.id }}</td>
               <td>{{ admin.name }}</td>
-              <td>{{ admin.number }}</td>
+              <td>{{ admin.handphone }}</td>
               <td>{{ admin.password }}</td>
-              <td>{{ admin.tgl }}</td>
+              <td>{{ created }}</td>
               <td>
                 <b-icon
                   v-b-modal.modal-prevent-closing
                   icon="pencil-square"
                   class="mr-1"
+                  @click="showAdmin(admin.id)"
                 ></b-icon>
-                <b-icon v-b-modal.delete icon="trash"></b-icon>
+                <b-icon
+                  v-b-modal.delete
+                  icon="trash"
+                  @click="deleteAdmin(admin.id)"
+                ></b-icon>
               </td>
             </tr>
           </tbody>
@@ -83,60 +91,36 @@ export default {
   data() {
     return {
       title: 'Admin',
-      inputs: [
-        { label: 'Admin Name', type: 'text', placeholder: 'Full Name' },
-        { label: 'Id Admin', type: 'text', placeholder: 'Id Number' },
-        { label: 'No Handphone', type: 'text', placeholder: 'xxxxxxxxxxxx' },
-        { label: 'Password', type: 'password', placeholder: 'Password' },
-        {
-          label: 'Confirm Password',
-          type: 'password',
-          placeholder: 'Confirm Password',
-        },
-      ],
-      items: [
-        {
-          id: '001',
-          name: 'Jeremy',
-          number: '9023483284',
-          password: 'Gym123',
-
-          tgl: '31 Mei 2022',
-        },
-        {
-          id: '002',
-          name: 'Jeremy',
-          number: '9023483284',
-          password: 'Gym123',
-
-          tgl: '31 Mei 2022',
-        },
-        {
-          id: '003',
-          name: 'Jeremy',
-          number: '9023483284',
-          password: 'Gym123',
-
-          tgl: '31 Mei 2022',
-        },
-        {
-          id: '004',
-          name: 'Jeremy',
-          number: '9023483284',
-          password: 'Gym123',
-
-          tgl: '31 Mei 2022',
-        },
-        {
-          id: '005',
-          name: 'Jeremy',
-          number: '9023483284',
-          password: 'Gym123',
-
-          tgl: '31 Mei 2022',
-        },
-      ],
+      items: [],
+      created: '',
     }
+  },
+  mounted() {
+    let today = new Date()
+    let dd = String(today.getDate()).padStart(2, '0')
+    let mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+    let yyyy = today.getFullYear()
+
+    today = mm + '/' + dd + '/' + yyyy
+    this.created = today
+
+    this.$axios
+      .get('https://capstone-gym-project.herokuapp.com/api/v1/admins')
+      .then((result) => {
+        this.items = result.data.user
+        console.log(result)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+  methods: {
+    deleteAdmin(id) {
+      localStorage.setItem('delete', id)
+    },
+    showAdmin(id) {
+      localStorage.setItem('update', id)
+    },
   },
 }
 </script>
@@ -155,8 +139,5 @@ export default {
 a {
   text-decoration: none;
   color: black;
-}
-.admin {
-  padding-left: 35px;
 }
 </style>
