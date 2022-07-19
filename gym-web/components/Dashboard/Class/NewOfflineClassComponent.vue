@@ -40,7 +40,7 @@
           <label><strong>Date</strong></label>
           <b-form-input
             v-model="date"
-            type="text"
+            type="date"
             placeholder="Example : 20 Mei 2022"
             trim
           >
