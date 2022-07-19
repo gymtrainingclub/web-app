@@ -20,22 +20,35 @@
         <div class="card-body">
           <b-row class="d-flex justify-content-around align-items-center mb-3">
             <b-col cols="12" md="2" class="mb-2"
-              ><b-form-input placeholder="Name"></b-form-input
+              ><b-form-input
+                v-model="name_trainer"
+                placeholder="Name"
+              ></b-form-input
             ></b-col>
             <b-col cols="12" md="2" class="mb-2"
-              ><b-form-input placeholder="Class"></b-form-input
+              ><b-form-input
+                v-model="name_class"
+                placeholder="Class"
+              ></b-form-input
             ></b-col>
             <b-col cols="12" md="2" class="mb-2"
               ><b-form-select
+                v-model="category"
+                :value="options"
                 :options="options"
                 placeholder="Enter your name"
               ></b-form-select
             ></b-col>
             <b-col cols="12" md="2" class="mb-2"
-              ><b-form-input placeholder="No Handphone"></b-form-input
+              ><b-form-input
+                v-model="handphone"
+                placeholder="No Handphone"
+              ></b-form-input
             ></b-col>
             <b-col cols="12" md="2" class="mb-2"
-              ><b-button style="background: #0c303d">Save</b-button></b-col
+              ><b-button @click="add()" style="background: #0c303d"
+                >Save</b-button
+              ></b-col
             >
           </b-row>
           <b-row>
@@ -55,19 +68,34 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(trainer, index) in clas" :key="index">
+                  <tr v-for="(trainer, index) in trainers" :key="index">
                     <td>{{ index + 1 }}</td>
-                    <td>{{ trainer.instructor.name }}</td>
                     <td>{{ trainer.name }}</td>
-                    <td>{{ trainer.type }}</td>
-                    <td>{{ trainer.instructor.handphone }}</td>
+                    <td>{{ trainer.class }}</td>
+                    <td>{{ trainer.category }}</td>
+                    <td>{{ trainer.handphone }}</td>
                     <td>
                       <b-button-group size="sm">
+                        <button
+                          @click="active === !active"
+                          type="button"
+                          class="btn pr-3 pl-3 btn-active"
+                        >
+                          Active
+                        </button>
+                        <button
+                          @click="active === !active"
+                          class="btn pr-3 pl-3 btn-hiatus"
+                        >
+                          Hiatus
+                        </button>
+                      </b-button-group>
+                      <!-- <b-button-group v-else size="sm">
                         <button type="button" class="btn pr-3 pl-3 btn-active">
                           Active
                         </button>
                         <button class="btn pr-3 pl-3 btn-hiatus">Hiatus</button>
-                      </b-button-group>
+                      </b-button-group> -->
                     </td>
                     <td><b-icon v-b-modal.delete icon="trash"></b-icon></td>
                   </tr>
@@ -76,7 +104,26 @@
             </b-col>
           </b-row>
           <b-modal id="delete" hide-footer hide-header>
-            <DeleteComponent :title="title" />
+            <!-- <div id="modal" class="text-center m-5">
+              <b-icon class="h2" icon="trash"></b-icon>
+              <h2>Delete {{ title }} ?</h2>
+              <p>Deleting this file will be permanent.</p>
+              <div class="d-flex justify-content-around">
+                <b-button
+                  variant="outline-secondary"
+                  class="cancel shadow"
+                  @click="$bvModal.hide('delete')"
+                  >Cancel</b-button
+                >
+                <b-button
+                  @click="$bvModal.hide('delete')"
+                  class="shadow"
+                  style="background: #0c303d"
+                  >Delete</b-button
+                >
+              </div>
+            </div> -->
+            <DeleteComponent @click="deleteItem()" :title="title" />
           </b-modal>
         </div>
       </div>
@@ -94,10 +141,19 @@ export default {
   },
   data() {
     return {
-      options: ['Online', 'Offline'],
+      options: [
+        { value: 'Online', text: 'Online' },
+        { value: 'Offline', text: 'Offline' },
+      ],
       index: 0,
+      id: 1,
       active: true,
       title: 'Trainer',
+      name_trainer: '',
+      name_class: '',
+      category: '',
+      handphone: '',
+      error: 'Data Belum lengkap',
       cards: [
         { icon: 'person-square', name: 'Admin', value: 4 },
         { icon: 'people-fill', name: 'Membership', value: 40 },
@@ -111,19 +167,44 @@ export default {
         'Class',
         // 'Room',
       ],
+      trainers: [],
     }
   },
-  computed: {
-    clas() {
-      return this.$store.state.class
-    },
-  },
   mounted() {
-    this.getClass()
+    const trainers = localStorage.getItem('trainers')
+    this.trainers = trainers ? JSON.parse(trainers) : []
   },
   methods: {
-    getClass() {
-      this.$store.dispatch('getClass')
+    add() {
+      if (
+        this.id &&
+        this.name_trainer &&
+        this.name_class &&
+        this.category &&
+        this.handphone !== ''
+      ) {
+        this.trainers.push({
+          id: this.id++,
+          name: this.name_trainer,
+          class: this.name_class,
+          category: this.category,
+          handphone: this.handphone,
+        })
+        this.name_trainer = ''
+        this.name_class = ''
+        this.category = ''
+        this.handphone = ''
+
+        localStorage.setItem('trainers', JSON.stringify(this.trainers))
+        alert('Trainer berhasil ditambahkan')
+      } else {
+        alert(this.error)
+      }
+    },
+    deleteItem(index) {
+      this.trainers.splice(index, 1)
+      localStorage.removeItem('trainers', JSON.stringify(this.trainers.id))
+      // localStorage.removeItem('trainers')
     },
   },
 }

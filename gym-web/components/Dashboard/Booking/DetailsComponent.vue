@@ -6,7 +6,7 @@
         <NuxtLink to="/Dashboard/booking-class">
           <b-icon variant="dark" icon="chevron-left"></b-icon>
         </NuxtLink>
-        {{ this.$route.params.id.class }}
+        {{ this.$route.params.id.name }}
       </h3>
       <div class="m-4">
         <b-row>
@@ -19,9 +19,9 @@
               />
               <div class="card-img-overlay mt-4">
                 <h5 class="card-title mt-5">
-                  {{ this.$route.params.id.class }}
+                  {{ this.$route.params.id.name }}
                 </h5>
-                <span>Name Place</span>
+                <span> Capstone Gym Darmo Surabaya </span>
                 <p class="card-text">By {{ this.$route.params.id.trainer }}</p>
                 <div class="d-flex justify-content-end">
                   <b-button size="sm" variant="light" pill>60 Min</b-button>
@@ -40,8 +40,8 @@
             <p>{{ this.$route.params.id.time }}</p>
             <p>{{ this.$route.params.id.trainer }}</p>
             <p>
-              <a :href="this.$route.params.id.link"
-                >{{ this.$route.params.id.link }}
+              <a :href="this.$route.params.id.url"
+                >{{ this.$route.params.id.url }}
                 {{ this.$route.params.id.place }}</a
               >
             </p>

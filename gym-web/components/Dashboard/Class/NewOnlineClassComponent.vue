@@ -27,15 +27,20 @@
             trim
           ></b-form-input>
         </b-form-group>
-        <b-form-group disabled class="input-select">
+        <b-form-group class="input-select">
           <label><strong> Category</strong></label>
-          <b-form-input v-model="category"></b-form-input>
+          <b-form-select
+            type="select"
+            :value="options"
+            v-model="category"
+            :options="options"
+          ></b-form-select>
         </b-form-group>
         <b-form-group class="input">
           <label><strong>Date</strong></label>
           <b-form-input
             v-model="date"
-            type="text"
+            type="date"
             placeholder="Example : 20 Mei 2022"
             trim
           >
@@ -75,7 +80,12 @@ export default {
   data() {
     return {
       index: 1,
-      category: 'Online class',
+      category: '',
+      options: [
+        { value: 'Online Class', text: 'Online Class' },
+        { value: 'Offline Class', text: 'Offline Class', disabled: true },
+      ],
+
       name: '',
       date: '',
       time: '',
@@ -85,22 +95,35 @@ export default {
   },
   methods: {
     add() {
-      this.onlineClass.push({
-        id: this.index++,
-        name: this.name,
-        trainer: this.trainer,
-        category: this.category,
-        time: this.time,
-        url: this.link,
-        date: this.date,
-      })
-      this.name = ''
-      this.trainer = ''
-      this.category = ''
-      this.date = ''
-      this.time = ''
-      this.link = ''
-      localStorage.setItem('onlineClass', JSON.stringify(this.onlineClass))
+      if (
+        this.name &&
+        this.trainer &&
+        this.category &&
+        this.date &&
+        this.time &&
+        this.link &&
+        this.index !== ''
+      ) {
+        this.onlineClass.push({
+          id: this.index++,
+          name: this.name,
+          trainer: this.trainer,
+          category: this.category,
+          time: this.time,
+          url: this.link,
+          date: this.date,
+        })
+        this.name = ''
+        this.trainer = ''
+        this.category = ''
+        this.date = ''
+        this.time = ''
+        this.link = ''
+        localStorage.setItem('onlineClass', JSON.stringify(this.onlineClass))
+        alert('Class berhasil ditambahkan')
+      } else {
+        alert('Data belum lengkap')
+      }
     },
   },
 }

@@ -17,6 +17,7 @@
         <b-nav-form class="mt-2">
           <b-form-input
             size="lg"
+            v-model="search"
             class="mr-2 search"
             placeholder="Search"
           ></b-form-input>
@@ -83,7 +84,7 @@
           </b-form-group>
           <b-form-group class="input">
             <label><strong>Date</strong></label>
-            <b-form-input v-model="selectedItem.date" type="text" trim>
+            <b-form-input v-model="selectedItem.date" type="date" trim>
             </b-form-input>
           </b-form-group>
           <b-form-group class="input">
@@ -102,7 +103,9 @@
               trim
             ></b-form-input>
           </b-form-group>
-          <b-button style="background: #0c303d">Save</b-button>
+          <b-button @click="update()" style="background: #0c303d"
+            >Save</b-button
+          >
         </b-modal>
         <b-modal id="delete" hide-header hide-footer>
           <DeleteComponent :title="title" />
@@ -124,7 +127,10 @@ export default {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
       title: 'Class',
-      selectedItem: {},
+      search: '',
+      id: null,
+      newClass: '',
+      selectedItem: [],
       offlineClass: [],
     }
   },
@@ -150,6 +156,14 @@ export default {
     showModal(item) {
       this.selectedItem = item
       this.$root.$emit('bv::show::modal', 'modal-1')
+    },
+    update() {
+      const result = this.filteredClass.filter(
+        (selectedItem) => selectedItem.id === this.id
+      )
+      result.map((res) => (res.name = this.newClass))
+      localStorage.setItem('offlineClass', JSON.stringify(this.offlineClass))
+      this.$root.$emit('bv::hide::modal', 'modal-1')
     },
   },
 }

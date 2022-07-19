@@ -93,20 +93,32 @@ export default {
   },
   methods: {
     add() {
-      this.newsletter.push({
-        id: this.index++,
-        title: this.title,
-        author: this.author,
-        category: this.selected,
-        desc: this.desc,
-        date: this.date,
-      })
-      this.title = ''
-      this.author = ''
-      this.selected = ''
-      this.desc = ''
-      this.date = new Date()
-      localStorage.setItem('newsletter', JSON.stringify(this.newsletter))
+      if (
+        this.title &&
+        this.index &&
+        this.author &&
+        this.selected &&
+        this.desc &&
+        this.date !== ''
+      ) {
+        this.newsletter.push({
+          id: this.index++,
+          title: this.title,
+          author: this.author,
+          category: this.selected,
+          desc: this.desc,
+          date: this.date,
+        })
+        this.title = ''
+        this.author = ''
+        this.selected = ''
+        this.desc = ''
+        this.date = new Date()
+        localStorage.setItem('newsletter', JSON.stringify(this.newsletter))
+        alert('Newsletter Berhasil di tambahkan')
+      } else {
+        alert('Data belum lengkap')
+      }
     },
   },
 }
