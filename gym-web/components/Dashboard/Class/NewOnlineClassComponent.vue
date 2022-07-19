@@ -95,22 +95,35 @@ export default {
   },
   methods: {
     add() {
-      this.onlineClass.push({
-        id: this.index++,
-        name: this.name,
-        trainer: this.trainer,
-        category: this.category,
-        time: this.time,
-        url: this.link,
-        date: this.date,
-      })
-      this.name = ''
-      this.trainer = ''
-      this.category = ''
-      this.date = ''
-      this.time = ''
-      this.link = ''
-      localStorage.setItem('onlineClass', JSON.stringify(this.onlineClass))
+      if (
+        this.name &&
+        this.trainer &&
+        this.category &&
+        this.date &&
+        this.time &&
+        this.link &&
+        this.index !== ''
+      ) {
+        this.onlineClass.push({
+          id: this.index++,
+          name: this.name,
+          trainer: this.trainer,
+          category: this.category,
+          time: this.time,
+          url: this.link,
+          date: this.date,
+        })
+        this.name = ''
+        this.trainer = ''
+        this.category = ''
+        this.date = ''
+        this.time = ''
+        this.link = ''
+        localStorage.setItem('onlineClass', JSON.stringify(this.onlineClass))
+        alert('Class berhasil ditambahkan')
+      } else {
+        alert('Data belum lengkap')
+      }
     },
   },
 }
