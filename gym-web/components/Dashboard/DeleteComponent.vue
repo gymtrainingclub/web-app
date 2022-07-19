@@ -10,7 +10,12 @@
         @click="$bvModal.hide('delete')"
         >Cancel</b-button
       >
-      <b-button class="shadow" style="background: #0c303d">Delete</b-button>
+      <b-button
+        class="shadow"
+        @click="$bvModal.hide('delete')"
+        style="background: #0c303d"
+        >Delete</b-button
+      >
     </div>
   </div>
 </template>

@@ -17,6 +17,7 @@
         <b-nav-form class="mt-2">
           <b-form-input
             size="lg"
+            v-model="search"
             class="mr-2 search"
             placeholder="Search"
           ></b-form-input>
@@ -37,11 +38,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in items" :key="index">
+            <tr v-for="(item, index) in filteredClass" :key="index">
               <th scope="row"><input type="checkbox" /></th>
-              <td>{{ item.class }}</td>
+              <td>{{ item.name }}</td>
               <td>
-                <a href="#">{{ item.link }}</a>
+                <a href="#">{{ item.url }}</a>
               </td>
               <td>{{ item.date }}</td>
               <td>{{ item.time }}</td>
@@ -74,44 +75,27 @@ export default {
   data() {
     return {
       buttons: ['Cardio', 'Body & Mind', 'Strenght'],
-      items: [
-        {
-          class: 'Fit Box',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          link: 'https://meet.google.com/fdsjfhakj',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Rush',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          link: 'https://meet.google.com/fdsjfhakj',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Fit Box',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          link: 'https://meet.google.com/fdsjfhakj',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Mat Palites',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          link: 'https://meet.google.com/fdsjfhakj',
-          trainer: 'Mr.Lex',
-        },
-        {
-          class: 'Strong Nation',
-          date: '20 Mei 2022',
-          time: '08:00 sd 09:00',
-          link: 'https://meet.google.com/fdsjfhakj',
-          trainer: 'Mr.Lex',
-        },
-      ],
+      search: '',
+      onlineClass: [],
     }
+  },
+  computed: {
+    filteredClass() {
+      if (this.search) {
+        return this.onlineClass.filter((online) => {
+          return this.search
+            .toLowerCase()
+            .split(' ')
+            .every((query) => online.name.toLowerCase().includes(query))
+        })
+      } else {
+        return this.onlineClass
+      }
+    },
+  },
+  mounted() {
+    const onlineClass = localStorage.getItem('onlineClass')
+    this.onlineClass = onlineClass ? JSON.parse(onlineClass) : []
   },
 }
 </script>

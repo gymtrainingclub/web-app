@@ -27,7 +27,7 @@
             trim
           ></b-form-input>
         </b-form-group>
-        <b-form-group disabled class="input-select">
+        <b-form-group class="input-select">
           <label><strong> Category</strong></label>
           <b-form-select
             type="select"
@@ -94,22 +94,35 @@ export default {
   },
   methods: {
     add() {
-      this.offlineClass.push({
-        id: this.index++,
-        name: this.name,
-        trainer: this.trainer,
-        category: this.category,
-        time: this.time,
-        place: this.place,
-        date: this.date,
-      })
-      this.name = ''
-      this.trainer = ''
-      this.category = ''
-      this.date = ''
-      this.time = ''
-      this.place = ''
-      localStorage.setItem('offlineClass', JSON.stringify(this.offlineClass))
+      if (
+        this.name &&
+        this.index &&
+        this.trainer &&
+        this.category &&
+        this.date &&
+        this.time &&
+        this.place !== ''
+      ) {
+        this.offlineClass.push({
+          id: this.index++,
+          name: this.name,
+          trainer: this.trainer,
+          category: this.category,
+          time: this.time,
+          place: this.place,
+          date: this.date,
+        })
+        this.name = ''
+        this.trainer = ''
+        this.category = ''
+        this.date = ''
+        this.time = ''
+        this.place = ''
+        localStorage.setItem('offlineClass', JSON.stringify(this.offlineClass))
+        alert('Class berhasil di tambahkan')
+      } else {
+        alert('Data Belum Lengkap')
+      }
     },
   },
 }
