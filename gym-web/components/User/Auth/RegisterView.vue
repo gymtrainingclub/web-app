@@ -137,18 +137,21 @@ export default {
   methods: {
     handleRegister() {
       this.$axios
-        .post('/register', {
-          name: this.fullName,
-          gender: this.gender,
-          handphone: this.handphone,
-          city: this.city,
-          email: this.email,
-          password: this.password,
-          confirm_password: this.confirmPassword,
-        })
+        .post(
+          'https://virtserver.swaggerhub.com/imanuelpay/gym-api/1.0.0/register',
+          {
+            name: this.fullName,
+            gender: this.gender,
+            handphone: this.handphone,
+            city: this.city,
+            email: this.email,
+            password: this.password,
+            confirm_password: this.confirmPassword,
+          }
+        )
         .then((res) => {
           console.log(res)
-          this.$router.push('/user/auth/login')
+          this.$router.push('/user/auth/verification')
         })
         .catch((err) => {
           console.log(err)
